@@ -14,6 +14,7 @@ const C = 2 * Math.PI * R;
 type Mark = { at: number; mins: number; label: string };
 
 export default function DayClock() {
+  const rootRef = useRef<HTMLDivElement>(null);
   const timeRef = useRef<HTMLSpanElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const arcRef = useRef<SVGCircleElement>(null);
@@ -37,6 +38,8 @@ export default function DayClock() {
 
     const update = () => {
       const y = window.scrollY;
+      // the hero has its own "LIGHTS ON." moment; the clock appears once you step inside
+      rootRef.current?.classList.toggle("is-hidden", y < window.innerHeight * 0.55);
       let mins = DAY_START;
       let label = marks[0]?.label ?? "";
       if (marks.length) {
@@ -84,7 +87,7 @@ export default function DayClock() {
   }, []);
 
   return (
-    <div aria-hidden className="day-clock">
+    <div ref={rootRef} aria-hidden className="day-clock is-hidden">
       <svg width="40" height="40" viewBox="0 0 40 40" className="shrink-0">
         <circle cx="20" cy="20" r={R} fill="none" stroke="rgb(255 244 220 / 0.14)" strokeWidth="1" />
         <circle
@@ -103,8 +106,8 @@ export default function DayClock() {
         <circle ref={dotRef} cx="20" cy={20 - R} r="2" fill="var(--light)" className="dc-dot" />
         <defs>
           <linearGradient id="dc-gold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#F2D48A" />
-            <stop offset="1" stopColor="#9C7631" />
+            <stop offset="0" stopColor="#f2dca8" />
+            <stop offset="1" stopColor="#927047" />
           </linearGradient>
         </defs>
       </svg>

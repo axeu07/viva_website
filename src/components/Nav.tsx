@@ -11,6 +11,7 @@ import { nav } from "@/lib/content";
 import Logo from "./Logo";
 import Button from "./Button";
 import { useSound } from "./Sound";
+import { StatusChip } from "./ui";
 
 export default function Nav() {
   const bar = useRef<HTMLElement>(null);
@@ -115,6 +116,7 @@ export default function Nav() {
           </nav>
 
           <div className="ml-auto flex items-center gap-2 lg:ml-0">
+            <StatusChip bare className="mr-2 hidden xl:inline-flex" />
             <button
               type="button"
               className="sound-toggle"

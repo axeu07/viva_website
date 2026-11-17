@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
   trailingSlash: true,
-  // keep the dev badge clear of the day clock (bottom-left)
-  devIndicators: { position: "bottom-right" },
+  // the dev badge collides with the day clock (bottom-left) and the light switch (bottom-right)
+  devIndicators: false,
   turbopack: {
     rules: {
       "*.css": {

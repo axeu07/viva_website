@@ -84,20 +84,20 @@ export const marquee = [
   "Certified trainers",
 ] as const;
 
-/** The day at Viva: each section's clock time, label and anchor id. */
+/** The day at Viva: each object's clock time, index, label and anchor id (upgrade brief order). */
 export const sections = [
-  { id: "top", time: "05:00", label: "Lights on", title: "Lights on." },
-  { id: "story", time: "06:30", label: "Our story", title: "Viva means life." },
-  { id: "goals", time: "09:00", label: "Your goal", title: "What are you here to build?" },
-  { id: "facilities", time: "11:00", label: "Facilities", title: "World-class, under golden light." },
-  { id: "classes", time: "13:00", label: "Classes", title: "Zumba. Bhangra. Yoga. More." },
-  { id: "cafe", time: "15:00", label: "Viva Café", title: "Train. Refuel. Repeat." },
-  { id: "coaches", time: "17:00", label: "Coaches", title: "Built under these lights." },
-  { id: "memories", time: "18:30", label: "Beyond the gym", title: "We don't just build muscles. We build memories." },
-  { id: "proof", time: "19:30", label: "Proof", title: "Golden hour, every hour." },
-  { id: "plans", time: "20:30", label: "Membership", title: "Pick your commitment." },
-  { id: "book", time: "21:30", label: "Book your first session", title: "Your first day is on us." },
-  { id: "visit", time: "22:00", label: "Lights off", title: "Lights off. See you at 5." },
+  { id: "top", time: "05:00", index: "", label: "Lights on", title: "Lights on." },
+  { id: "walls", time: "06:30", index: "01", label: "Written on our walls", title: "Written on our walls" },
+  { id: "goals", time: "09:00", index: "02", label: "Your goal", title: "What are you here to build?" },
+  { id: "facilities", time: "11:00", index: "03", label: "Inside Viva", title: "The locker room" },
+  { id: "classes", time: "13:00", index: "04", label: "Classes", title: "The studio scoreboard" },
+  { id: "cafe", time: "15:00", index: "05", label: "Viva Café", title: "Train. Refuel. Repeat." },
+  { id: "crew", time: "17:00", index: "06", label: "The crew", title: "Built under these lights." },
+  { id: "memories", time: "18:30", index: "07", label: "Beyond the gym", title: "We don't just build muscles. We build memories." },
+  { id: "proof", time: "19:30", index: "08", label: "The scoreboard", title: "Big numbers" },
+  { id: "plans", time: "20:30", index: "09", label: "Membership", title: "The access card" },
+  { id: "book", time: "21:30", index: "10", label: "Book your first day", title: "Your first day is on us." },
+  { id: "visit", time: "22:00", index: "", label: "Lights off", title: "Lights off. See you at 5." },
 ] as const;
 
 export type SectionId = (typeof sections)[number]["id"];
@@ -105,7 +105,7 @@ export const sectionById = (id: SectionId) => sections.find((s) => s.id === id)!
 
 export const nav = {
   links: [
-    { label: "Story", href: "#story" },
+    { label: "Story", href: "#walls" },
     { label: "Train", href: "#goals" },
     { label: "Facilities", href: "#facilities" },
     { label: "Classes", href: "#classes" },
@@ -116,4 +116,37 @@ export const nav = {
   cta: { label: "Book free trial", href: "#book" },
 } as const;
 
-// Section body copy is filled in during Phases 4–5.
+// ── 05:00 Hero: the light switch ───────────────────────────────────────────
+export const hero = {
+  kicker: "Viva Premium Gym · Dehradun · Since April 2024",
+  headline: "Lights on.",
+  sub: "Dehradun's premium gym & café. First day or fiftieth, you train at your pace, with a crew that has your back.",
+  ctaPrimary: { label: "Book a free trial", href: "#book" },
+  ctaSecondary: { label: "Find your program", href: "#goals" },
+  stepInside: { label: "Step inside", href: "#walls" },
+} as const;
+
+// ── 01 Written on our walls: the neon wall ─────────────────────────────────
+// The real neon signs on Viva's walls (visible in the footage). `focus` = object-position of the sign in the photo.
+export const neonSigns = [
+  { word: "Build Muscles", image: "build-muscles", focus: "62% 30%", where: "Lifting platform" },
+  { word: "Power", image: "floor-power", focus: "36% 40%", where: "Strength floor" },
+  { word: "Muscles", image: "corridor-gold", focus: "42% 45%", where: "Main corridor" },
+  { word: "Energy", image: "floor-energy", focus: "70% 35%", where: "Plate-loaded zone" },
+  { word: "Heat", image: "floor-energy", focus: "0% 40%", where: "Squat bay" },
+] as const;
+
+export const neonWallClose = {
+  line1: "Champions aren't born.",
+  line2: "They're built at Viva.",
+  // the welcoming half of the pair (addendum: premium without intimidating beginners)
+  sub: "Your journey. Your pace. Your definition of progress.",
+} as const;
+
+// ── Crossing tapes ─────────────────────────────────────────────────────────
+export const tapes = {
+  gold: ["Since April 2024", "Imported equipment", "Steam & shower", "Zumba", "Bhangra", "Yoga", "Healthy café"],
+  neon: ["Build muscles", "Power", "Energy", "Heat"],
+} as const;
+
+// Remaining section copy is filled in as each object is built.

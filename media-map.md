@@ -39,10 +39,9 @@ By the brief's rule, all of it counts as *unusable for launch*. For this **demo*
 | P12 | Screenshot 2026-11-17 121912.png | image | 666×378 | — | 357 | Spin room with the big LED "VVV" wall | cardio / class | — | Usable |
 | P13 | Screenshot 2026-11-17 121920.png | image | 710×462 | — | 529 | Strength floor, gold POWER / MUSCLES neon | strength | Carousel arrow at the left edge | Usable (cropped) |
 | P14 | Screenshot 2026-11-17 121931.png | image | 803×473 | — | 624 | Widest floor shot: ENERGY / HEAT neon, white LED strips | gym floor | Carousel arrow at the left edge | Usable (cropped), **best wide image** |
+| P15 | brand-logo-reference.png | image | 167×86 | — | 18 | The Viva logo (gold on black) | logo / branding | — | **Reference only**: used, with the stopgap, to trace the bull head for the Phase 4 SVG logo |
 
-| P15 | brand-logo-reference.png | image | 167×86 | — | 18 | The Viva logo (gold on black) | logo / branding | — | **Reference only**: smaller than the stopgap below |
-
-**No usable logo file** is in the folder. `public/media/logo-stopgap.png` (272×118, cut from V2's end card) is used **in the nav only**. The intro and hero use a typeset wordmark until the real file (SVG or PNG ≥ 2000 px) arrives.
+**No usable logo file** is in the folder. `public/media/logo-stopgap.png` (272×118, cut from V2's end card) is used **in the nav only** for now. In Phase 4 it is replaced everywhere (nav, intro, footer) by a hand-built SVG logo: a bull head traced from the stopgap and reference, plus VIVA letters as paths. That SVG gives way in turn to the real file (SVG or PNG ≥ 2000 px) when the client sends it. See `docs/PLAN.md`.
 
 ## Processed outputs
 
@@ -81,7 +80,7 @@ By the brief's rule, all of it counts as *unusable for launch*. For this **demo*
 
 | Time | Section | Media | Notes |
 |---|---|---|---|
-| — | Intro | Typeset wordmark (`<Logo variant="wordmark">`): "VIVA" in the headline font, metallic gold with sheen, "PREMIUM GYM" letter-spaced under it | **Approved.** Swap in the real logo file later in one component |
+| — | Intro | **Bull-to-VIVA** (requested 2026-11-17; replaces the typeset wordmark): a gold SVG bull gallops in, skids to a stop, and its body morphs into VIVA while the head stays as the logo's bull head. No footage | Plan in `docs/PLAN.md` → Phase 4. Shapes need approval before the timeline is built |
 | 05:00 | Hero | **Desktop:** triptych of three portrait video panels (`floor`, `class-lead`, `cardio`) at native size, like lit doorways in the black wall, each with a thin warm-white light-strip frame; they play when the intro ends. `floor-energy` sits behind, dark and blurred, with light shafts and dust. On scroll the side panels slide apart and the centre one scales up slightly. **Mobile:** `floor` loop full-screen | **Approved.** A wide hero clip from the client would still be better |
 | — | Marquee | none (type only) | |
 | 06:30 | Story | `corridor-gold` (left backdrop). Timeline: `exterior` (doors open), `class-wide` (community), `bull-wall` (Viva 2.0) | |

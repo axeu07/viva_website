@@ -1,0 +1,122 @@
+/* ── Welcome intro (z 90: above the light switch 70 and nav 60, below the cursor 100) ── */
+.intro {
+  display: none;
+}
+html[data-intro] .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+/* backdrop is its own layer so it can fade while the logo stays solid and flies to the nav */
+.it-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 70% at 50% 0%, #191817 0%, #101010 60%);
+}
+html[data-intro] {
+  overflow: hidden;
+}
+/* the page's own fixed chrome waits behind the intro */
+html[data-intro] .site-nav,
+html[data-intro] .day-clock {
+  visibility: hidden;
+}
+/* landing: the nav fades in under the flying logo; its own logo appears only when ours arrives */
+html[data-intro="landing"] .site-nav,
+html[data-intro="landing"] .day-clock {
+  visibility: visible;
+  animation: it-chrome-in 0.8s 0.35s both;
+}
+html[data-intro="landing"] .site-nav .viva-logo,
+html[data-intro="landing"] .site-nav a img {
+  opacity: 0;
+}
+html[data-intro="landing"] .intro {
+  pointer-events: none;
+}
+@keyframes it-chrome-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.it-strips {
+  position: absolute;
+  inset: 9vh 0 auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  pointer-events: none;
+}
+.it-dust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 40% at 50% 46%, rgb(242 220 168 / 0.07), transparent 70%);
+}
+.it-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+.it-logo {
+  will-change: transform, filter, opacity;
+  filter: drop-shadow(0 0 28px rgb(200 164 107 / 0.22));
+}
+
+.it-ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.it-ui > * {
+  pointer-events: auto;
+}
+.it-skip {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgb(255 244 220 / 0.18);
+  font-family: var(--ff-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.25s, border-color 0.25s;
+}
+.it-skip:hover,
+.it-skip:focus-visible {
+  color: var(--light);
+  border-color: rgb(242 212 138 / 0.6);
+}
+.it-counter {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  font-family: var(--ff-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-1);
+  font-variant-numeric: tabular-nums;
+}
+.it-step-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 16vh;
+  translate: -50% 0;
+}
+.it-step {
+  opacity: 0;
+}
+@media (min-width: 1024px) {
+  .it-skip { top: 28px; right: 28px; }
+  .it-counter { right: 28px; bottom: 28px; }
+}

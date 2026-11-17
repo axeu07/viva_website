@@ -1,0 +1,18 @@
+/* ── SVG logo ── */
+.viva-logo {
+  overflow: visible;
+}
+.viva-logo .lg-sweep {
+  transform-box: view-box;
+}
+/* slow specular sheen when the logo is at rest */
+.viva-logo.has-sheen .lg-sweep {
+  animation: lg-sheen 7s ease-in-out infinite;
+}
+@keyframes lg-sheen {
+  0%, 60% { translate: 0 0; }
+  100% { translate: 1500px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .viva-logo.has-sheen .lg-sweep { animation: none; }
+}
