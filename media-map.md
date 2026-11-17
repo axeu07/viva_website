@@ -1,6 +1,6 @@
 # Media map: Viva Premium Gym
 
-Source folder: `../viva_videos` (18 files; originals untouched, copied to `public/media/raw/`).
+Source folder: `../viva_videos` (18 files; originals untouched, copied to `media-src/raw/`, outside `public/` so they are never deployed).
 Pipeline: `npm run media` → config in `scripts/media.config.mjs` → assets in `public/media/`, data in `src/lib/media-manifest.json`.
 
 ## ⚠ The headline problem: resolution
@@ -40,7 +40,9 @@ By the brief's rule, all of it counts as *unusable for launch*. For this **demo*
 | P13 | Screenshot 2026-11-17 121920.png | image | 710×462 | — | 529 | Strength floor, gold POWER / MUSCLES neon | strength | Carousel arrow at the left edge | Usable (cropped) |
 | P14 | Screenshot 2026-11-17 121931.png | image | 803×473 | — | 624 | Widest floor shot: ENERGY / HEAT neon, white LED strips | gym floor | Carousel arrow at the left edge | Usable (cropped), **best wide image** |
 
-**No logo file** is in the folder. `public/media/logo-stopgap.png` (272×118) is cut from V2's end card and is good enough for a small nav logo only. The intro needs the real file (SVG or PNG ≥ 2000 px).
+| P15 | brand-logo-reference.png | image | 167×86 | — | 18 | The Viva logo (gold on black) | logo / branding | — | **Reference only**: smaller than the stopgap below |
+
+**No usable logo file** is in the folder. `public/media/logo-stopgap.png` (272×118, cut from V2's end card) is used **in the nav only**. The intro and hero use a typeset wordmark until the real file (SVG or PNG ≥ 2000 px) arrives.
 
 ## Processed outputs
 
@@ -79,8 +81,8 @@ By the brief's rule, all of it counts as *unusable for launch*. For this **demo*
 
 | Time | Section | Media | Notes |
 |---|---|---|---|
-| — | Intro | real logo file (**needed**), `bull-wall` frame as an optional glow reference | The stopgap logo is too small for the intro's "emerge from darkness" moment |
-| 05:00 | Hero | **Desktop:** `floor-energy` full-bleed, slow pan, vignette, light shafts and dust. **Mobile:** `floor` loop full-bleed | No wide video exists. The brief's "best wide gym-floor clip" needs client footage |
+| — | Intro | Typeset wordmark (`<Logo variant="wordmark">`): "VIVA" in the headline font, metallic gold with sheen, "PREMIUM GYM" letter-spaced under it | **Approved.** Swap in the real logo file later in one component |
+| 05:00 | Hero | **Desktop:** triptych of three portrait video panels (`floor`, `class-lead`, `cardio`) at native size, like lit doorways in the black wall, each with a thin warm-white light-strip frame; they play when the intro ends. `floor-energy` sits behind, dark and blurred, with light shafts and dust. On scroll the side panels slide apart and the centre one scales up slightly. **Mobile:** `floor` loop full-screen | **Approved.** A wide hero clip from the client would still be better |
 | — | Marquee | none (type only) | |
 | 06:30 | Story | `corridor-gold` (left backdrop). Timeline: `exterior` (doors open), `class-wide` (community), `bull-wall` (Viva 2.0) | |
 | 09:00 | Goal finder | Burn fat → `cardio`; Build muscle → `floor`; Move & feel good → `class-wide`; Athlete → `trainer`. Matching photos (`cardio-zone`, `build-muscles`, `spin-room`, `lat-pulldown`) as the blurred full-bleed backdrop | Video swaps inside a large portrait "screen", lit by a light wipe |

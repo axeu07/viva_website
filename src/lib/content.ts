@@ -84,4 +84,36 @@ export const marquee = [
   "Certified trainers",
 ] as const;
 
-// Section copy is filled in during Phases 4–5.
+/** The day at Viva: each section's clock time, label and anchor id. */
+export const sections = [
+  { id: "top", time: "05:00", label: "Lights on", title: "Lights on." },
+  { id: "story", time: "06:30", label: "Our story", title: "Viva means life." },
+  { id: "goals", time: "09:00", label: "Your goal", title: "What are you here to build?" },
+  { id: "facilities", time: "11:00", label: "Facilities", title: "World-class, under golden light." },
+  { id: "classes", time: "13:00", label: "Classes", title: "Zumba. Bhangra. Yoga. More." },
+  { id: "cafe", time: "15:00", label: "Viva Café", title: "Train. Refuel. Repeat." },
+  { id: "coaches", time: "17:00", label: "Coaches", title: "Built under these lights." },
+  { id: "memories", time: "18:30", label: "Beyond the gym", title: "We don't just build muscles. We build memories." },
+  { id: "proof", time: "19:30", label: "Proof", title: "Golden hour, every hour." },
+  { id: "plans", time: "20:30", label: "Membership", title: "Pick your commitment." },
+  { id: "book", time: "21:30", label: "Book your first session", title: "Your first day is on us." },
+  { id: "visit", time: "22:00", label: "Lights off", title: "Lights off. See you at 5." },
+] as const;
+
+export type SectionId = (typeof sections)[number]["id"];
+export const sectionById = (id: SectionId) => sections.find((s) => s.id === id)!;
+
+export const nav = {
+  links: [
+    { label: "Story", href: "#story" },
+    { label: "Train", href: "#goals" },
+    { label: "Facilities", href: "#facilities" },
+    { label: "Classes", href: "#classes" },
+    { label: "Café", href: "#cafe" },
+    { label: "Plans", href: "#plans" },
+    { label: "Visit", href: "#visit" },
+  ],
+  cta: { label: "Book free trial", href: "#book" },
+} as const;
+
+// Section body copy is filled in during Phases 4–5.

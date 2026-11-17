@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
   trailingSlash: true,
+  // keep the dev badge clear of the day clock (bottom-left)
+  devIndicators: { position: "bottom-right" },
   turbopack: {
     rules: {
       "*.css": {

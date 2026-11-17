@@ -38,7 +38,7 @@ export const srcSet = (img: ImageAsset, ext: "avif" | "webp") =>
 
 /** Section → media assignment (pending approval of media-map.md). */
 export const sectionMedia = {
-  hero: { desktop: "floor-energy", mobileVideo: "floor" },
+  hero: { backdrop: "floor-energy", panels: ["floor", "class-lead", "cardio"], mobileVideo: "floor" },
   story: { photo: "corridor-gold", timeline: ["exterior", "class-wide", "bull-wall"] },
   goals: {
     "burn-fat": { video: "cardio", photo: "cardio-zone" },

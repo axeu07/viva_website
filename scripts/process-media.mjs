@@ -3,7 +3,7 @@
  * Re-runnable media pipeline: `npm run media` (add `-- --force` to rebuild everything).
  *
  * Source:  ../viva_videos (override with VIVA_MEDIA_SRC). Originals are never modified.
- * Output:  public/media/raw/      untouched copies of the originals
+ * Output:  media-src/raw/         untouched copies of the originals (not deployed)
  *          public/media/video/    <id>.mp4 (H.264) + <id>.webm (VP9) loops, <id>.jpg/.avif posters
  *          public/media/img/      <id>-<w>.avif / .webp photos and stills
  *          public/media/logo-stopgap.png
@@ -20,7 +20,7 @@ import { sources, clips, frames, photos, photoWidths, loopSize, logoStopgap } fr
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = process.env.VIVA_MEDIA_SRC ?? path.resolve(root, "..", "viva_videos");
 const OUT = path.join(root, "public", "media");
-const RAW = path.join(OUT, "raw");
+const RAW = path.join(root, "media-src", "raw"); // outside public/: never deployed
 const VID = path.join(OUT, "video");
 const IMG = path.join(OUT, "img");
 const TMP = path.join(root, ".media-tmp");
@@ -177,7 +177,12 @@ for (const f of frames) {
 {
   const s = srcPath(logoStopgap.source);
   const out = path.join(OUT, "logo-stopgap.png");
-  ff(["-ss", String(logoStopgap.t), "-i", s.path, "-frames:v", "1", "-vf", `crop=${logoStopgap.crop}`, out]);
+  // black → transparent: alpha from brightness (black level removed), colour un-premultiplied so edges stay gold
+  const L = "max(0,max(r(X,Y),max(g(X,Y),b(X,Y)))-12)";
+  const A = `min(255,2.6*${L})`;
+  const un = (c) => `min(255,${c}(X,Y)*255/max(1,${A}))`;
+  const alpha = `format=rgba,geq=r='${un("r")}':g='${un("g")}':b='${un("b")}':a='${A}'`;
+  ff(["-ss", String(logoStopgap.t), "-i", s.path, "-frames:v", "1", "-vf", `crop=${logoStopgap.crop},${alpha}`, out]);
   manifest.logoStopgap = { src: "/media/logo-stopgap.png", note: "Cut from a reel end card at low resolution. Replace with the client's logo file (SVG or large PNG)." };
   console.log(`\n▸ Stopgap logo → public/media/logo-stopgap.png`);
 }

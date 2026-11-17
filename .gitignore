@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# raw media copies (originals live in ../viva_videos)
-/public/media/raw/*
-!/public/media/raw/.gitkeep
+# raw media copies (originals live in ../viva_videos; kept outside public/ so they are never deployed)
+/media-src/raw/*
+!/media-src/raw/.gitkeep
 /.media-tmp/

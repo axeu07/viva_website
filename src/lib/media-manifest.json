@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T07:32:17.401Z",
+  "generatedAt": "2026-11-17T07:52:42.163Z",
   "inventory": [
     {
       "file": "Recording 2026-11-17 120344.mp4",
@@ -136,6 +136,14 @@
       "height": 473,
       "duration": null,
       "sizeKB": 624
+    },
+    {
+      "file": "brand-logo-reference.png",
+      "type": "image",
+      "width": 167,
+      "height": 86,
+      "duration": null,
+      "sizeKB": 18
     },
     {
       "file": "viva_cardio.mp4",
@@ -437,6 +445,7 @@
   },
   "unmapped": [
     "Screenshot 2026-11-17 120453.png",
-    "Screenshot 2026-11-17 121900.png"
+    "Screenshot 2026-11-17 121900.png",
+    "brand-logo-reference.png"
   ]
 }
