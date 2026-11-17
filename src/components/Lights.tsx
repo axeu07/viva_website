@@ -67,16 +67,9 @@ function LightSwitch() {
       <span className="ws-plate">
         <i className="ws-screw" aria-hidden />
         <span className="ws-well" aria-hidden>
-          <span className="ws-rocker">
-            <span className="ws-face ws-face-on">ON</span>
-            <span className="ws-face ws-face-off">OFF</span>
-          </span>
+          <span className="ws-rocker" />
         </span>
         <i className="ws-screw" aria-hidden />
-      </span>
-      <span className="ws-meta" aria-hidden>
-        <span className="ws-led" />
-        <span className="ws-text">{on ? "Lights on" : "Lights off"}</span>
       </span>
     </button>
   );
