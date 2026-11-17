@@ -1,0 +1,442 @@
+{
+  "generatedAt": "2026-11-17T07:32:17.401Z",
+  "inventory": [
+    {
+      "file": "Recording 2026-11-17 120344.mp4",
+      "type": "video",
+      "width": 344,
+      "height": 620,
+      "duration": 22.03,
+      "sizeKB": 2987
+    },
+    {
+      "file": "Recording 2026-11-17 120525.mp4",
+      "type": "video",
+      "width": 360,
+      "height": 600,
+      "duration": 13,
+      "sizeKB": 1662
+    },
+    {
+      "file": "Recording 2026-11-17 121608.mp4",
+      "type": "video",
+      "width": 366,
+      "height": 608,
+      "duration": 18.97,
+      "sizeKB": 2677
+    },
+    {
+      "file": "Screenshot 2026-11-17 120429.png",
+      "type": "image",
+      "width": 508,
+      "height": 577,
+      "duration": null,
+      "sizeKB": 414
+    },
+    {
+      "file": "Screenshot 2026-11-17 120453.png",
+      "type": "image",
+      "width": 357,
+      "height": 602,
+      "duration": null,
+      "sizeKB": 287
+    },
+    {
+      "file": "Screenshot 2026-11-17 121429.png",
+      "type": "image",
+      "width": 842,
+      "height": 577,
+      "duration": null,
+      "sizeKB": 822
+    },
+    {
+      "file": "Screenshot 2026-11-17 121627.png",
+      "type": "image",
+      "width": 401,
+      "height": 470,
+      "duration": null,
+      "sizeKB": 382
+    },
+    {
+      "file": "Screenshot 2026-11-17 121736.png",
+      "type": "image",
+      "width": 786,
+      "height": 560,
+      "duration": null,
+      "sizeKB": 722
+    },
+    {
+      "file": "Screenshot 2026-11-17 121804.png",
+      "type": "image",
+      "width": 628,
+      "height": 582,
+      "duration": null,
+      "sizeKB": 651
+    },
+    {
+      "file": "Screenshot 2026-11-17 121812.png",
+      "type": "image",
+      "width": 475,
+      "height": 585,
+      "duration": null,
+      "sizeKB": 410
+    },
+    {
+      "file": "Screenshot 2026-11-17 121821.png",
+      "type": "image",
+      "width": 472,
+      "height": 582,
+      "duration": null,
+      "sizeKB": 417
+    },
+    {
+      "file": "Screenshot 2026-11-17 121840.png",
+      "type": "image",
+      "width": 635,
+      "height": 576,
+      "duration": null,
+      "sizeKB": 645
+    },
+    {
+      "file": "Screenshot 2026-11-17 121850.png",
+      "type": "image",
+      "width": 478,
+      "height": 576,
+      "duration": null,
+      "sizeKB": 455
+    },
+    {
+      "file": "Screenshot 2026-11-17 121900.png",
+      "type": "image",
+      "width": 282,
+      "height": 630,
+      "duration": null,
+      "sizeKB": 278
+    },
+    {
+      "file": "Screenshot 2026-11-17 121912.png",
+      "type": "image",
+      "width": 666,
+      "height": 378,
+      "duration": null,
+      "sizeKB": 357
+    },
+    {
+      "file": "Screenshot 2026-11-17 121920.png",
+      "type": "image",
+      "width": 710,
+      "height": 462,
+      "duration": null,
+      "sizeKB": 529
+    },
+    {
+      "file": "Screenshot 2026-11-17 121931.png",
+      "type": "image",
+      "width": 803,
+      "height": 473,
+      "duration": null,
+      "sizeKB": 624
+    },
+    {
+      "file": "viva_cardio.mp4",
+      "type": "video",
+      "width": 356,
+      "height": 628,
+      "duration": 20,
+      "sizeKB": 2648
+    }
+  ],
+  "videos": {
+    "floor": {
+      "id": "floor",
+      "label": "Gym floor montage: squat bay, BUILD MUSCLES platform, dumbbell rack, white plate-loaded machines, POWER neon",
+      "width": 360,
+      "height": 576,
+      "duration": 4.87,
+      "mp4": "/media/video/floor.mp4",
+      "webm": "/media/video/floor.webm",
+      "poster": "/media/video/floor.jpg",
+      "posterAvif": "/media/video/floor.avif",
+      "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABwBACdASoUACAAPu1qqk8ppiOiMBgIATAdiWcAyrQNU+IKDmkPqvif1QRnJAD+vHPDxHUHRovw+xaSActr5mHfSsAhNd4k2PuILD08QbJa9RQKXAZJI35Zy9c0CTkMofKDdV4H1HvSh9FnFdFBi7/i++i5i40df56enwOmAAA=",
+      "sizeKB": {
+        "mp4": 313,
+        "webm": 401
+      }
+    },
+    "class-wide": {
+      "id": "class-wide",
+      "label": "Zumba class: wide room shot, then the fog/smoke shot",
+      "width": 360,
+      "height": 576,
+      "duration": 7.73,
+      "mp4": "/media/video/class-wide.mp4",
+      "webm": "/media/video/class-wide.webm",
+      "poster": "/media/video/class-wide.jpg",
+      "posterAvif": "/media/video/class-wide.avif",
+      "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoUACAAPu1kqE2ppaOiMAgBMB2JZQDCgCHcZDoeIIUrydYw5OeordR4wAD+7tkAixVIKMFgoUNHcsgyaIJhCHxLT0P2URS18ZPoMQlItK4jNKiUvc0t2ZEfYLGE6Twg4VK65Lvfw09ifMyIjn5mTg4AAAA=",
+      "sizeKB": {
+        "mp4": 374,
+        "webm": 462
+      }
+    },
+    "class-lead": {
+      "id": "class-lead",
+      "label": "Zumba class: lead dancers close up",
+      "width": 360,
+      "height": 576,
+      "duration": 7.87,
+      "mp4": "/media/video/class-lead.mp4",
+      "webm": "/media/video/class-lead.webm",
+      "poster": "/media/video/class-lead.jpg",
+      "posterAvif": "/media/video/class-lead.avif",
+      "placeholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASoUACAAPu1iqk2ppaQiMAgBMB2JYwDGfCHM4DjYYHQHOwJ616jPt12SyAD+o3gwvcE8po8kF6SmmOiRNmG9p1fhekY9r3mlOc6PnjtmsAWnL7Q/iwceHb8sqi8pWFvSDIdnrxybjgS08Y5NHFwhcbmobRPg+IeA/naJPDIB0OwAAA==",
+      "sizeKB": {
+        "mp4": 453,
+        "webm": 592
+      }
+    },
+    "cardio": {
+      "id": "cardio",
+      "label": "Cardio: spin bike, treadmill touchscreen, stair climber, ellipticals",
+      "width": 360,
+      "height": 576,
+      "duration": 4.73,
+      "mp4": "/media/video/cardio.mp4",
+      "webm": "/media/video/cardio.webm",
+      "poster": "/media/video/cardio.jpg",
+      "posterAvif": "/media/video/cardio.avif",
+      "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwBACdASoUACAAPu1mqk4ppaQiMAgBMB2JZwC90Bttvzk5Lrzq1u9TaCPw0b+AAP7PT2Qtlz7JckdWaTFXQqhwvZTX28R7zLavw36Vyb+bprjUKjQpC+hEyXNg5DNIbb4jzCBuOHZQTBbneml8WYIqWJ7tzwlmr1YbZ1X+FwpiZsJ8T2muQNgAAAA=",
+      "sizeKB": {
+        "mp4": 200,
+        "webm": 286
+      }
+    },
+    "trainer": {
+      "id": "trainer",
+      "label": "Trainer coaching a member: bench press, dumbbells (STRENGTH neon), lat pull, rowing, white machine",
+      "width": 360,
+      "height": 576,
+      "duration": 5.03,
+      "mp4": "/media/video/trainer.mp4",
+      "webm": "/media/video/trainer.webm",
+      "poster": "/media/video/trainer.jpg",
+      "posterAvif": "/media/video/trainer.avif",
+      "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACwBACdASoUACAAPu1kq0+ppSOiMBgIATAdiWUAvzgPRdnXmfDUhB2JChwAGAgAAP7kQcQAY4tars1JLDttxrE/z27nAKcqEq+lB7rQ7PihvKqek6CwZ4D9/x3CVvcSgxgYIxd6yNYPu2twOIcs3rNxlZ1Xn4xkNP6ZJJxF8FgeBkG698Ke4Xb7rwW1nAHDKYUa7j5sNZEvKEYev+xnqAAA",
+      "sizeKB": {
+        "mp4": 227,
+        "webm": 332
+      }
+    },
+    "bull-wall": {
+      "id": "bull-wall",
+      "label": "Member in front of the backlit bull logo wall",
+      "width": 360,
+      "height": 576,
+      "duration": 5.87,
+      "mp4": "/media/video/bull-wall.mp4",
+      "webm": "/media/video/bull-wall.webm",
+      "poster": "/media/video/bull-wall.jpg",
+      "posterAvif": "/media/video/bull-wall.avif",
+      "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACQBQCdASoUACAAPu1kqk2ppaQiMAgBMB2JZQDE2CHV5fROBMifBkhb4bZ38um63Zj9UDSwAAD+6TZ/e2XLWMqV10p5DNhHzXmaxUzzVno1x0j/FG3Ss/1Q5UoXh0WsQUgT5olwm83d2VUGU7ny5rLpsp/3ZY8PTQYyxwTeFoAAAA==",
+      "sizeKB": {
+        "mp4": 150,
+        "webm": 196
+      }
+    }
+  },
+  "images": {
+    "floor-energy": {
+      "id": "floor-energy",
+      "label": "Wide gym floor, ENERGY / HEAT neon, white LED strips",
+      "width": 782,
+      "height": 470,
+      "widths": [
+        640,
+        782
+      ],
+      "base": "/media/img/floor-energy",
+      "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSBEAAAABD/Ca/4iIMP8R/Y8AAAAAAABWUDggagAAABAFAJ0BKhQADAA+7WKpTamlo6IwCAEwHYlsAJ0a4DBAP0A9/+7AAL4yHrNB5D81nzgA/jRu7WoraXJ6w2eBfkapWi0BYAr9DC8fvloYKA98X6S9PU1TjthigMEWiOzrVYjTHJvK66goAAA=",
+      "source": "Screenshot 2026-11-17 121931.png"
+    },
+    "floor-power": {
+      "id": "floor-power",
+      "label": "Strength floor, gold POWER / MUSCLES neon",
+      "width": 694,
+      "height": 460,
+      "widths": [
+        640,
+        694
+      ],
+      "base": "/media/img/floor-power",
+      "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBQCdASoUAA4APu1kqk4ppaQiMAgBMB2JbACdHX/3K/8BhAHr/3bN+qoEtEh17jYAAP6+UyFE+eom5HHsiNu08QOu548eiBl29xxLSbTQ6rLIsjpC+UQmPw5Q7fxfsUHW6FEnyP0hQJdQyLXoQy3/wqiVy/b7QJIc73umvfm+6a98YAA=",
+      "source": "Screenshot 2026-11-17 121920.png"
+    },
+    "corridor-gold": {
+      "id": "corridor-gold",
+      "label": "Gold-lit corridor, MUSCLES / ENERGY neon, Viva lifting belt",
+      "width": 626,
+      "height": 568,
+      "widths": [
+        626
+      ],
+      "base": "/media/img/corridor-gold",
+      "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwBQCdASoUABIAPu1oqk8ppiOiMBgIATAdiWIArDMcgq8gH6ge/+ATOcBoPsE53XiSccVJT8AA/r/37c3vvX+bghCMPC8XLqi6GiQ6+0DD1KMu3mklu2/eEVY8Hq5IjNeqqxq04RoHkyi1qTSWh/3XPeFv3BUcqVEBEdUAcwAAAA==",
+      "source": "Screenshot 2026-11-17 121804.png"
+    },
+    "build-muscles": {
+      "id": "build-muscles",
+      "label": "Lifting platform with BUILD MUSCLES neon, coloured bumper plates",
+      "width": 632,
+      "height": 574,
+      "widths": [
+        632
+      ],
+      "base": "/media/img/build-muscles",
+      "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBQCdASoUABIAPu1iq0+ppSOiMBgIATAdiWQAgk/oDBAPX/AIFp+NrHJEREucoIyEHlg2AAD+fqfjO+lDlfF5l4A2ig2b8W5Y47Rp25EmU47Jdl/7K6MPh3RgPW/Cz/KS2Vy/8pLUaTzl/4bNSGScDkYeAs7ZQjlRj5HhniEJWILa5lp3lpJz5RnE8XkboAA=",
+      "source": "Screenshot 2026-11-17 121840.png"
+    },
+    "cardio-zone": {
+      "id": "cardio-zone",
+      "label": "Cardio zone: treadmills, elliptical, spin bikes, LED wall, flip tyre",
+      "width": 840,
+      "height": 574,
+      "widths": [
+        640,
+        840
+      ],
+      "base": "/media/img/cardio-zone",
+      "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACQBQCdASoUAA4APu1kq04ppaQiMAgBMB2JagCdHX/3AP7NhAH6Ae//ds36qgXdBunhq21gAAD+7EJTiB+QwuG+r6rpfSJ47kSoO0QCfqUF37A9TH/IPJ7JwAJM9g8irTCGd6zmlcj+AdbMfP5yyL/9DLhjbHeMQJL9KnuYgAA=",
+      "source": "Screenshot 2026-11-17 121429.png"
+    },
+    "strength-white": {
+      "id": "strength-white",
+      "label": "White plate-loaded strength machines, mirrored walls",
+      "width": 784,
+      "height": 558,
+      "widths": [
+        640,
+        784
+      ],
+      "base": "/media/img/strength-white",
+      "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwBQCdASoUAA4APu1iqU2ppaQiMAgBMB2JagCxCX/3AP7NhAH6Ae//ds36qgWY18fr1uAB1IAAzS34nJTnjfs/agixuHnGxraL0Ru4kte/H4ok9PtizwivACBHr/Yqc8yz1em94ISk1+s3fjP7fNnN3/6GXDP//IRYHAAA",
+      "source": "Screenshot 2026-11-17 121736.png"
+    },
+    "spin-room": {
+      "id": "spin-room",
+      "label": "Spin room with LED wall",
+      "width": 664,
+      "height": 376,
+      "widths": [
+        640,
+        664
+      ],
+      "base": "/media/img/spin-room",
+      "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSBEAAAABD/Ca/4iIMP8R/Y8AAAAAAABWUDggZgAAABAFAJ0BKhQADAA+7WiqTqmmJCIwCAEwHYlqAJ0a4DBAP0A9/+7AAL4/qpAYjZ6mPgAA/uaT4Sjvwz+O0IIGaIWdobhGnss6hf736S4lxfpL09TVOOxna1tTZS6587aUH2MplPrAAA==",
+      "source": "Screenshot 2026-11-17 121912.png"
+    },
+    "lat-pulldown": {
+      "id": "lat-pulldown",
+      "label": "Member on lat pulldown (cropped below the VIVA logo)",
+      "width": 506,
+      "height": 532,
+      "widths": [
+        506
+      ],
+      "base": "/media/img/lat-pulldown",
+      "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACQBQCdASoUABYAPu1oqk+ppiOiMBgIATAdiUAYadwGCAfoB7/92AAK0kYgPepmE0WklytzoAD+nss5THHmdj0d2hz2ozdbQyO3Y2QezheP3mB1VTfZwvH7hpSXEu2aLYt9/PlfNAJvR98XKWRESQGV6LHizLHukLvNK9L7lsoHxjhp0K014muAAAA=",
+      "source": "Screenshot 2026-11-17 120429.png"
+    },
+    "treadmills": {
+      "id": "treadmills",
+      "label": "Treadmills with touchscreens, stair climber",
+      "width": 472,
+      "height": 572,
+      "widths": [
+        472
+      ],
+      "base": "/media/img/treadmills",
+      "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBgCdASoUABgAPu1gq1AppKOisBgIATAdiUAY0twGCAfoB7/92AAL2vOzXZfTDGcGhmFnrfqcDN3xtfiAAOJ9ZCnFyIg0LNI+BmZy2EplpGp6JjGqdfkX4v0l6aFdVU3rixgp0U7m+HiudRE+3+pwb6nMxxz+k86gBu5h5ApEJ2n2GBPw2EmGW2SFUPlA6DSHaH2nerQAAA==",
+      "source": "Screenshot 2026-11-17 121812.png"
+    },
+    "lounge": {
+      "id": "lounge",
+      "label": "Reception lounge: sofas, gold tables, plants",
+      "width": 470,
+      "height": 580,
+      "widths": [
+        470
+      ],
+      "base": "/media/img/lounge",
+      "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBgCdASoUABgAPu1kqU2ppaQiMBgMATAdiWIAqS1BVExQD9APf/AO9xGm99ymjfJ5TpsHzdJ4u6wLfZvsAPPGg242JgbiO/hmwyTBNRnlqV7pZZLlT1Lssq53W6QVwu395jHre7ubecaOfVm3fyMwEb927TwB4aQKNkg0kyuzDXDjXGMlqvlOwv0oE0GAZ+QghVMYxj8YAA==",
+      "source": "Screenshot 2026-11-17 121821.png"
+    },
+    "entrance": {
+      "id": "entrance",
+      "label": "Glass entrance into the spin room",
+      "width": 476,
+      "height": 574,
+      "widths": [
+        476
+      ],
+      "base": "/media/img/entrance",
+      "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACwBQCdASoUABgAPu1oqk8ppiOiMBgIATAdiWIAvWsgH6Ae/+AehSqwQgq4MH2hs89N1lF8vwAA/qJKsDlj4peb64FBMxuv2EzY7vz+YO63SZ74OYydRHZzu1Ymdme7UFBYAxkQQ3rBZRIlQw+BicfgjlUUH/On+jljjj8VD1AUAAAA",
+      "source": "Screenshot 2026-11-17 121850.png"
+    },
+    "exterior": {
+      "id": "exterior",
+      "label": "Rajput Tower exterior with VIVA PREMIUM GYM sign",
+      "width": 398,
+      "height": 468,
+      "widths": [
+        398
+      ],
+      "base": "/media/img/exterior",
+      "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAACwBQCdASoUABgAPu1cqE2ppKOiN/VYATAdiWYAnTNlwgH6Ae/+AeQOAjpBANNDh6nqwaZmscAA+gz7VtwxlGI9sYeAVdfEaM6ryfruRkE2Z1g26HCOxHVRVrB3c7Ezle9fUDXhA5eTyzPNnGfW5irMkqJH8maqVWPsrfBq0HDr+WLS2pHV23td2IzFZ60REMsS4AAA",
+      "source": "Screenshot 2026-11-17 121627.png"
+    },
+    "lockers": {
+      "id": "lockers",
+      "label": "Member at the changing-room / locker door (backlit signage)",
+      "width": 356,
+      "height": 620,
+      "widths": [
+        356
+      ],
+      "base": "/media/img/lockers",
+      "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBQCdASoUACIAPulgpk2pJaOiNVQMASAdCWUAxgQLN2HVvmUcwe0+7OvdoUZdv1UUZwAA+p6xioh6qxL5sX/Z6QAnGORFOQzMjEn2ZzDx5Qv91ztoguRaCUcKUVWd2NEqHMUkHB/FwR4UXX81B5jTZaGAljLzNbPj9B4dWyt3Zc3AAAA=",
+      "source": "viva_cardio.mp4 @ 0.25s"
+    },
+    "jersey": {
+      "id": "jersey",
+      "label": "Viva jersey close-up",
+      "width": 356,
+      "height": 620,
+      "widths": [
+        356
+      ],
+      "base": "/media/img/jersey",
+      "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwBQCdASoUACIAPuFaqU2opSQiNVgMARAcCWcAzUgWZduehhImqbIO7niFElhfqwT70mX3HGsmAAD+7u5aufQYhBdorKDEi9VAIn7eD2FaiTlEJkT1YL2GNw+nX7LYWFASCwzFuJbSydvboncvdTIjp7bOj/wPubrxRPxGbC0Tl6FkRmFESpRV4xtOA4OSaVv1M0IA",
+      "source": "viva_cardio.mp4 @ 1s"
+    },
+    "trainer-stretch": {
+      "id": "trainer-stretch",
+      "label": "Trainer guiding a member through a stretch",
+      "width": 356,
+      "height": 620,
+      "widths": [
+        356
+      ],
+      "base": "/media/img/trainer-stretch",
+      "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwBQCdASoUACIAPuFaqU2opSQiNVgMARAcCWcAzUgWZduehhImqbIO7niFElhfqwT70mX3HGsmAAD+7u5aufQYhBdorKDEi9VAIn7eD2FaiTlEJkT1YL2GNw+nX7LYWFASCwzFuJbSydvboncvdTIjp7bOj/wPubrxRPxGbC0Tl6FkRmFESpRV4xtOA4OSaVv1M0IA",
+      "source": "viva_cardio.mp4 @ 2s"
+    }
+  },
+  "logoStopgap": {
+    "src": "/media/logo-stopgap.png",
+    "note": "Cut from a reel end card at low resolution. Replace with the client's logo file (SVG or large PNG)."
+  },
+  "unmapped": [
+    "Screenshot 2026-11-17 120453.png",
+    "Screenshot 2026-11-17 121900.png"
+  ]
+}
