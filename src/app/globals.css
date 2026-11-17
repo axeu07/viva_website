@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/* ── Viva theme: black walls, white-gold light, sunlight ───────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --wall: #070605;      /* page background, matte black wall */
+  --wall-2: #12100c;    /* panels, cards */
+  --gold-1: #f2d48a;
+  --gold-2: #c9a24a;
+  --gold-3: #9c7631;
+  --gold: linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 50%, var(--gold-3) 100%);
+  --light: #fff4dc;     /* warm white light: glows, beams, hot text */
+  --sun: rgb(255 181 71 / 0.3); /* sunlight shafts (use at 20–40%) */
+  --ink: #f4efe4;       /* body text */
+  --muted: #b8ae9a;     /* secondary text */
+
+  --glow-gold: 0 0 24px rgb(242 212 138 / 0.35), 0 0 2px rgb(255 244 220 / 0.6);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-wall: var(--wall);
+  --color-wall-2: var(--wall-2);
+  --color-gold-1: var(--gold-1);
+  --color-gold-2: var(--gold-2);
+  --color-gold-3: var(--gold-3);
+  --color-light: var(--light);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --font-display: var(--ff-display), Impact, sans-serif;
+  --font-sans: var(--ff-body), system-ui, sans-serif;
+  --font-accent: var(--ff-accent), Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--wall);
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--wall);
+  color: var(--ink);
+  font-family: var(--ff-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--gold-2);
+  color: var(--wall);
+}
+
+/* Headline type: uppercase display cut */
+.headline {
+  font-family: var(--ff-display), Impact, sans-serif;
+  font-variation-settings: "opsz" 72;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+.accent {
+  font-family: var(--ff-accent), Georgia, serif;
+  font-style: italic;
+}
+
+/* Lit text: ivory with a soft gold glow */
+.text-lit {
+  color: var(--light);
+  text-shadow: var(--glow-gold);
+}
+
+.text-gold {
+  background: var(--gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-1);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw media copies (originals live in ../viva_videos)
+/public/media/raw/*
+!/public/media/raw/.gitkeep
