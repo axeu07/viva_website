@@ -38,7 +38,7 @@ export default function NeonWall() {
         trigger: stage.current,
         pin: true,
         start: "top top",
-        end: () => `+=${Math.round(window.innerHeight * 0.75 * N)}`,
+        end: () => `+=${Math.round(window.innerHeight * 0.6 * N)}`,
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
@@ -54,6 +54,86 @@ export default function NeonWall() {
     },
     { scope: root, dependencies: [reduced] },
   );
+
+  // one scroll gesture = one sign. While the wall is pinned, wheel / swipe input is intercepted
+  // (before Lenis sees it) and turned into a glide to the next or previous sign's centre.
+  useEffect(() => {
+    if (reduced) return;
+    let busy = false;
+    let lastWheel = 0;
+    let touchY: number | null = null;
+
+    const inRange = () => {
+      const t = st.current;
+      if (!t) return false;
+      const y = getLenis()?.scroll ?? window.scrollY;
+      return y >= t.start - 1 && y <= t.end + 1;
+    };
+
+    const step = (dir: 1 | -1) => {
+      const t = st.current;
+      if (!t) return;
+      const lenis = getLenis();
+      const y = lenis?.scroll ?? window.scrollY;
+      const len = t.end - t.start;
+      const centres = Array.from({ length: N }, (_, i) => t.start + ((i + 0.5) / N) * len);
+      let target: number;
+      if (dir > 0) {
+        const next = centres.find((c) => c > y + 10);
+        target = next ?? t.end + 2; // past the last sign: release the pin
+      } else {
+        const prev = [...centres].reverse().find((c) => c < y - 10);
+        target = prev ?? t.start - 2; // before the first sign: release upward
+      }
+      busy = true;
+      const done = () => {
+        busy = false;
+      };
+      if (lenis) lenis.scrollTo(target, { duration: 0.9, lock: true, force: true, onComplete: done });
+      else {
+        window.scrollTo({ top: target, behavior: "smooth" });
+        window.setTimeout(done, 900);
+      }
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (!inRange() || Math.abs(e.deltaY) < 2) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const now = performance.now();
+      const fresh = now - lastWheel > 160; // a new gesture, not trackpad inertia
+      lastWheel = now;
+      if (busy || !fresh) return;
+      step(e.deltaY > 0 ? 1 : -1);
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchY = inRange() ? e.touches[0].clientY : null;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (touchY === null) return;
+      e.preventDefault();
+    };
+    const onTouchEnd = (e: TouchEvent) => {
+      if (touchY === null) return;
+      const dy = touchY - (e.changedTouches[0]?.clientY ?? touchY);
+      touchY = null;
+      if (busy || Math.abs(dy) < 30) return;
+      step(dy > 0 ? 1 : -1);
+    };
+
+    const opts: AddEventListenerOptions = { passive: false, capture: true };
+    window.addEventListener("wheel", onWheel, opts);
+    window.addEventListener("touchstart", onTouchStart, opts);
+    window.addEventListener("touchmove", onTouchMove, opts);
+    window.addEventListener("touchend", onTouchEnd, opts);
+    return () => {
+      window.removeEventListener("wheel", onWheel, opts);
+      window.removeEventListener("touchstart", onTouchStart, opts);
+      window.removeEventListener("touchmove", onTouchMove, opts);
+      window.removeEventListener("touchend", onTouchEnd, opts);
+    };
+  }, [reduced]);
 
   // light-wipe the new photo in over the old one
   useEffect(() => {
