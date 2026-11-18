@@ -142,7 +142,7 @@ export default function Intro() {
     LETTER_ORDER.forEach((k) => slices[k].setAttribute("d", TORSO_SLICES[k]));
     (Object.keys(legs) as LegId[]).forEach((k) => legs[k].setAttribute("d", FRAMES[0].pose[k].d));
     gsap.set(svg, { opacity: reduced ? 0 : 1 });
-    gsap.set([q(".b-tail"), q(".b-facets"), head], { opacity: 1 });
+    gsap.set([q(".b-tail"), q(".b-facets"), q(".b-slice"), q(".b-leg"), head], { opacity: 1 });
     gsap.set(q(".b-shadow"), { opacity: 1 });
     gsap.set(q(".b-relief"), { attr: { surfaceScale: 30 } });
     motion.setAttribute("filter", `url(#${uid}-blur)`);
@@ -279,18 +279,28 @@ export default function Intro() {
         .to([q(".b-facets"), q(".b-glint")], { opacity: 0, duration: 0.14 }, T_MORPH - 0.08)
         .to(q(".b-shadow"), { opacity: 0, duration: 0.2 }, T_MORPH - 0.08)
         // the sculpted relief flattens as the bull becomes letters, so they match the flat logo gold
-        .to(q(".b-relief"), { attr: { surfaceScale: 0 }, duration: 0.45, ease: "power2.inOut" }, T_MORPH)
+        // (fully flat before the first letter's morph ends, so each swap to the crisp letter is seamless)
+        .to(q(".b-relief"), { attr: { surfaceScale: 0 }, duration: MORPH_DUR - 0.04, ease: "power2.inOut" }, T_MORPH)
         .to(q(".b-tail"), { opacity: 0, scaleY: 0.4, svgOrigin: "300 120", duration: 0.18, ease: "power2.in" }, T_MORPH);
       LETTER_ORDER.forEach((l, i) => {
         const { slice, legs: legIds } = MORPH_MAP[l];
         const targets = [slices[slice], ...legIds.map((id) => legs[id])];
-        tl.to(targets, { morphSVG: { shape: LETTERS[l], shapeIndex: "auto" }, duration: MORPH_DUR, ease: "power2.inOut" }, T_MORPH + i * MORPH_STAGGER);
+        const t0 = T_MORPH + i * MORPH_STAGGER;
+        tl.to(targets, { morphSVG: { shape: LETTERS[l], shapeIndex: "auto" }, duration: MORPH_DUR, ease: "power2.inOut" }, t0);
+        // the legs take their own path into the same letter, so mid-morph they read as offset copies
+        // under it; they fold in and fade while the torso slice alone forms the letter
+        const legEls = legIds.map((id) => legs[id]);
+        if (legEls.length) tl.to(legEls, { opacity: 0, duration: MORPH_DUR * 0.55, ease: "power1.in" }, t0 + 0.04);
+        // hand this letter over to the crisp logo letter only once its morph has fully landed (the shapes
+        // are then identical). Swapping earlier showed the half-morphed shape over the finished letter.
+        const done = t0 + MORPH_DUR;
+        tl.to(el.querySelector(`.lg-letter[data-l="${l}"]`), { opacity: 1, duration: 0.08, ease: "none" }, done)
+          .to(targets, { opacity: 0, duration: 0.08, ease: "none" }, done);
       });
       const T_LOGO = T_MORPH + 3 * MORPH_STAGGER + MORPH_DUR; // ≈ 1.32 s
       tl
-        // hand the morphed shapes over to the crisp logo letters (identical shapes, logo gold)
-        .to(L, { opacity: 1, duration: 0.15, ease: "none" }, T_LOGO - 0.1)
-        .to(svg, { opacity: 0, duration: 0.15, ease: "none" }, T_LOGO - 0.02)
+        // every letter has been swapped; the bull's head sits exactly on the logo head, so drop the layer
+        .set(svg, { opacity: 0 }, T_LOGO + 0.08)
         .fromTo(q(".lg-sweep"), { x: 0 }, { x: 1500, duration: 0.4, ease: "power2.inOut" }, T_LOGO - 0.25)
         .fromTo(q(".lg-sub-ch"), { opacity: 0, x: (_: number, t: Element) => Number((t as SVGElement).dataset.dx) || 0 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, T_LOGO - 0.2)
         .to([q(".lg-rule-l"), q(".lg-rule-r")], { scaleX: 1, duration: 0.3, ease: "power3.inOut" }, T_LOGO - 0.15)
