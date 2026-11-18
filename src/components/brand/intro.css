@@ -63,6 +63,11 @@ html[data-intro="landing"] .intro {
   width: 100%;
   padding: 0 16px;
 }
+/* before JS takes over, the server HTML has the bull stacked on the finished logo: keep it hidden
+   until Intro.tsx sets data-intro="running" (and has applied the timeline's start state) */
+html[data-intro="pending"] .it-stage {
+  visibility: hidden;
+}
 .it-logo {
   position: relative;
   will-change: transform, filter, opacity;
