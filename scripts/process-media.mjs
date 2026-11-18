@@ -44,7 +44,8 @@ function run(cmd, args, { capture = false } = {}) {
 }
 const ff = (args) => run("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", ...args]);
 const probe = (file) => JSON.parse(run("ffprobe", ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", file], { capture: true }));
-const fresh = (out, ...inputs) => !FORCE && existsSync(out) && inputs.every((i) => statSync(i).mtimeMs <= statSync(out).mtimeMs);
+// A missing source with an existing output counts as fresh: keep the built file rather than crash.
+const fresh = (out, ...inputs) => !FORCE && existsSync(out) && inputs.every((i) => !existsSync(i) || statSync(i).mtimeMs <= statSync(out).mtimeMs);
 const kb = (f) => Math.round(statSync(f).size / 1024);
 const srcPath = (alias) => {
   const s = sources[alias];

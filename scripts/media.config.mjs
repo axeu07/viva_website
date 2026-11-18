@@ -13,6 +13,8 @@ export const sources = {
   promoReel: { file: "Recording 2026-11-17 120525.mp4", crop: "356:556:2:4" }, // watermark bottom-right
   zumbaReel: { file: "Recording 2026-11-17 121608.mp4", crop: "358:556:4:4" }, // watermark bottom-right
   cardioReel: { file: "viva_cardio.mp4", crop: "356:620:0:4" }, // no watermark, 2px border
+  zumbaClass: { file: "zumba.mp4", crop: "478:765:0:85" },
+  cardioClip: { file: "cardio.mp4", crop: "478:765:0:42" }, // 478x850, no watermark; centred crop // 478x850; top crop drops ceiling + small watermark
 };
 
 /** Output size for portrait loops. Sources are ~350px wide, so we keep native size (no upscaling). */
@@ -51,6 +53,17 @@ export const clips = [
       ["zumbaReel", 0.05, 3.86],
       ["zumbaReel", 7.88, 11.96],
     ],
+  },
+  {
+    id: "zumba",
+    label: "Zumba class in the studio: full room dancing, lead in front",
+    // Full clip, including the opening "ZUMBA / Feel the magic of ATICONIC" title card.
+    segments: [["zumbaClass", 0, 12.25]],
+  },
+  {
+    id: "cardio-hero",
+    label: "Cardio & strength: curved treadmill sprint, tyre sledgehammer, hex-lit rack room, console",
+    segments: [["cardioClip", 0, 6.1]], // full clip from the start
   },
   {
     id: "cardio",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T05:30:52.066Z",
+  "generatedAt": "2026-11-18T06:21:56.242Z",
   "inventory": [
     {
       "file": "Recording 2026-11-17 120344.mp4",
@@ -146,14 +146,6 @@
       "sizeKB": 2230
     },
     {
-      "file": "acupuncture-shower.png",
-      "type": "image",
-      "width": 301,
-      "height": 460,
-      "duration": null,
-      "sizeKB": 172
-    },
-    {
       "file": "brand-logo-reference.png",
       "type": "image",
       "width": 167,
@@ -162,20 +154,12 @@
       "sizeKB": 18
     },
     {
-      "file": "healthy-cafe.png",
-      "type": "image",
-      "width": 257,
-      "height": 462,
-      "duration": null,
-      "sizeKB": 227
-    },
-    {
-      "file": "steam-room.png",
-      "type": "image",
-      "width": 310,
-      "height": 465,
-      "duration": null,
-      "sizeKB": 251
+      "file": "cardio.mp4",
+      "type": "video",
+      "width": 478,
+      "height": 850,
+      "duration": 6.11,
+      "sizeKB": 914
     },
     {
       "file": "viva_cardio.mp4",
@@ -184,6 +168,14 @@
       "height": 628,
       "duration": 20,
       "sizeKB": 2648
+    },
+    {
+      "file": "zumba.mp4",
+      "type": "video",
+      "width": 478,
+      "height": 850,
+      "duration": 12.29,
+      "sizeKB": 2234
     }
   ],
   "videos": {
@@ -233,6 +225,38 @@
       "sizeKB": {
         "mp4": 453,
         "webm": 592
+      }
+    },
+    "zumba": {
+      "id": "zumba",
+      "label": "Zumba class in the studio: full room dancing, lead in front",
+      "width": 360,
+      "height": 576,
+      "duration": 12.27,
+      "mp4": "/media/video/zumba.mp4",
+      "webm": "/media/video/zumba.webm",
+      "poster": "/media/video/zumba.jpg",
+      "posterAvif": "/media/video/zumba.avif",
+      "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQBACdASoUACAAPu1eqk2ppKQiMBgMATAdiUAY3or+FomQprUQc577I19MFAx7AAD+00e/FSq1DhVWMLdBHyeZZ1rRy9BoQbiFaO2B6GBpWMoOkzpaz9zkkvX6PJJr/Vt5QfKBwYNN8Dtr1pIAAA==",
+      "sizeKB": {
+        "mp4": 1000,
+        "webm": 1507
+      }
+    },
+    "cardio-hero": {
+      "id": "cardio-hero",
+      "label": "Cardio & strength: curved treadmill sprint, tyre sledgehammer, hex-lit rack room, console",
+      "width": 360,
+      "height": 576,
+      "duration": 5.93,
+      "mp4": "/media/video/cardio-hero.mp4",
+      "webm": "/media/video/cardio-hero.webm",
+      "poster": "/media/video/cardio-hero.jpg",
+      "posterAvif": "/media/video/cardio-hero.avif",
+      "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoUACAAPu1gq1AppKOisBgIATAdiWcAvzgWctCGO6FOxUl6AAD+8ALLVKHtipJ0ynxUzvHp7whaFDYXHKvK+rCsrWmtV+oL5RiWK4IAAAA=",
+      "sizeKB": {
+        "mp4": 348,
+        "webm": 501
       }
     },
     "cardio": {

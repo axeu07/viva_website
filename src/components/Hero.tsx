@@ -19,7 +19,7 @@ import Button from "./Button";
 import { LoopVideo } from "./Media";
 import { MicroLabel, StatusChip, Chip } from "./ui";
 
-const PANELS = sectionMedia.hero.panels; // floor, class-lead, cardio
+const PANELS = sectionMedia.hero.panels; // floor, zumba, cardio-hero
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
