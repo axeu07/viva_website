@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T06:21:56.242Z",
+  "generatedAt": "2026-11-18T07:14:59.562Z",
   "inventory": [
     {
       "file": "Recording 2026-11-17 120344.mp4",
@@ -232,15 +232,15 @@
       "label": "Zumba class in the studio: full room dancing, lead in front",
       "width": 360,
       "height": 576,
-      "duration": 12.27,
+      "duration": 8.97,
       "mp4": "/media/video/zumba.mp4",
       "webm": "/media/video/zumba.webm",
       "poster": "/media/video/zumba.jpg",
       "posterAvif": "/media/video/zumba.avif",
       "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQBACdASoUACAAPu1eqk2ppKQiMBgMATAdiUAY3or+FomQprUQc577I19MFAx7AAD+00e/FSq1DhVWMLdBHyeZZ1rRy9BoQbiFaO2B6GBpWMoOkzpaz9zkkvX6PJJr/Vt5QfKBwYNN8Dtr1pIAAA==",
       "sizeKB": {
-        "mp4": 1000,
-        "webm": 1507
+        "mp4": 770,
+        "webm": 1161
       }
     },
     "cardio-hero": {

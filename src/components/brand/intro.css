@@ -28,7 +28,7 @@ html[data-intro] .day-clock {
 html[data-intro="landing"] .site-nav,
 html[data-intro="landing"] .day-clock {
   visibility: visible;
-  animation: it-chrome-in 0.8s 0.35s both;
+  animation: it-chrome-in 0.7s 0.3s both;
 }
 html[data-intro="landing"] .site-nav .viva-logo,
 html[data-intro="landing"] .site-nav a img {

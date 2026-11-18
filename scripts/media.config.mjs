@@ -57,8 +57,8 @@ export const clips = [
   {
     id: "zumba",
     label: "Zumba class in the studio: full room dancing, lead in front",
-    // Full clip, including the opening "ZUMBA / Feel the magic of ATICONIC" title card.
-    segments: [["zumbaClass", 0, 12.25]],
+    // Starts at 3.3s to skip the burned-in "ZUMBA / Feel the magic of ATICONIC" title card (gone by ~3.1s).
+    segments: [["zumbaClass", 3.3, 12.25]],
   },
   {
     id: "cardio-hero",
