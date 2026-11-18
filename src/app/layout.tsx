@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders, Manrope, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Big_Shoulders, Manrope, Instrument_Serif, JetBrains_Mono, Doto } from "next/font/google";
 import { site } from "@/lib/content";
 import "lenis/dist/lenis.css";
 import "./globals.css";
@@ -11,6 +11,7 @@ import DayClock from "@/components/DayClock";
 import Nav from "@/components/Nav";
 import { LightsProvider } from "@/components/Lights";
 import Intro from "@/components/Intro";
+import { SITE_URL } from "@/lib/seo";
 import { INTRO_BOOT } from "@/lib/intro";
 
 // Headlines: Big Shoulders (formerly "Big Shoulders Display"), display optical size.
@@ -44,9 +45,30 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+// LED dot-matrix display on the treadmill console only.
+const dot = Doto({
+  variable: "--ff-dot",
+  subsets: ["latin"],
+  weight: "800",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: `${site.name}, Dehradun | Lights on.`,
+  metadataBase: new URL(SITE_URL),
+  title: `${site.name}, Dehradun | Gym, classes & café`,
   description: site.metaDescription,
+  alternates: { canonical: "/" },
+  keywords: ["gym in Dehradun", "Viva Premium Gym", "Zumba Dehradun", "Bhangra fitness", "Yoga Dehradun", "personal trainer Dehradun", "GMS Road gym"],
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: site.altName,
+    title: `${site.name}, Dehradun | Lights on.`,
+    description: site.metaDescription,
+    images: [{ url: "/media/img/floor-energy-782.webp", width: 782, height: 470, alt: "The Viva gym floor under neon and LED strips" }],
+  },
+  twitter: { card: "summary_large_image", title: `${site.name}, Dehradun`, description: site.metaDescription, images: ["/media/img/floor-energy-782.webp"] },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -58,7 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${accent.variable} ${mono.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${accent.variable} ${mono.variable} ${dot.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

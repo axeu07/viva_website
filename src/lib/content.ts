@@ -149,4 +149,186 @@ export const tapes = {
   neon: ["Build muscles", "Power", "Energy", "Heat"],
 } as const;
 
+// ── 02 Your goal: the treadmill console ───────────────────────────────────
+// Programs are suggestions for the demo (tagged SAMPLE); classes, equipment and recovery are things Viva offers.
+export type GoalId = "burn-fat" | "build-muscle" | "feel-good" | "athlete" | "starting";
+export type MediaRef = { video?: string; photo?: string };
+export type Goal = { id: GoalId; label: string; program: string; intensity: number; media: MediaRef; classes: string[]; equipment: string[]; recovery: string[] };
+
+export const goalConsole = {
+  heading: "What are you here to build?",
+  sub: "Pick a goal and we'll show you where to start. No experience needed.",
+  start: "Start this with a free trial",
+  goals: [
+    {
+      id: "burn-fat",
+      label: "Burn fat",
+      program: "Burn fat",
+      intensity: 4,
+      media: { video: "cardio" },
+      classes: ["Zumba", "Aerobics", "Cross-functional"],
+      equipment: ["Imported treadmills & ellipticals", "Spin bikes", "Stair climber"],
+      recovery: ["Steam & shower", "Protein shake at the café"],
+    },
+    {
+      id: "build-muscle",
+      label: "Build muscle",
+      program: "Build muscle",
+      intensity: 4,
+      media: { video: "floor" },
+      classes: ["Cross-functional"],
+      equipment: ["Plate-loaded machines", "Free weights & racks", "Lifting platform"],
+      recovery: ["Acupuncture shower", "Post-workout meal at the café"],
+    },
+    {
+      id: "feel-good",
+      label: "Feel good",
+      program: "Move & feel good",
+      intensity: 2,
+      media: { video: "class-wide" },
+      classes: ["Zumba", "Bhangra", "Yoga", "Dance"],
+      equipment: ["Spin room", "Cardio zone"],
+      recovery: ["Steam & shower", "Healthy snacks"],
+    },
+    {
+      id: "athlete",
+      label: "Athlete mode",
+      program: "Athlete mode",
+      intensity: 5,
+      media: { video: "trainer" },
+      classes: ["Cross-functional", "CrossFit-style circuits"],
+      equipment: ["Coached strength stations", "Rowing & conditioning", "Lifting platform"],
+      recovery: ["Acupuncture shower", "Nutrition counselling at the café"],
+    },
+    {
+      id: "starting",
+      label: "Just starting out",
+      program: "First steps",
+      intensity: 1,
+      media: { photo: "trainer-stretch" },
+      classes: ["Zumba", "Yoga"],
+      equipment: ["A trainer-guided first session", "Easy cardio to warm up"],
+      recovery: ["Steam & shower", "A free trial to try it all"],
+    },
+  ] as Goal[],
+};
+
+// ── 03 Inside Viva: the locker room ───────────────────────────────────────
+// Facilities Viva publishes. Lockers without footage show a lit placeholder + "PHOTO COMING".
+export type LockerItem = { id: string; name: string; line: string; media: MediaRef | null; icon?: "steam" | "shower" | "cup" };
+
+export const lockerRoom = {
+  heading: "Inside Viva",
+  sub: "Open a locker. Everything you need is already here.",
+  hint: "Drag or scroll",
+  lockers: [
+    { id: "equipment", name: "Imported equipment", line: "The most advanced imported training equipment, from plate-loaded strength to cardio.", media: { video: "floor" } },
+    { id: "steam", name: "Steam bath", line: "Steam after your session, so you leave lighter than you came in.", media: { photo: "steam-room" }, icon: "steam" },
+    { id: "acupuncture", name: "Acupuncture shower", line: "An acupuncture shower to reset after the heavy days.", media: { photo: "acupuncture-shower" }, icon: "shower" },
+    { id: "lockers", name: "Personal lockers", line: "Your own locker. Bring your gear, leave the worry.", media: { photo: "lockers" } },
+    { id: "trainers", name: "Certified trainers", line: "Certified trainers who meet you where you are, on day one and beyond.", media: { video: "trainer" } },
+    { id: "cafe", name: "Healthy café", line: "Shakes, post-workout meals and healthy snacks, right after your session.", media: { photo: "healthy-cafe" }, icon: "cup" },
+    { id: "wifi-parking", name: "WiFi & parking", line: "Free WiFi inside, parking outside, and a wheelchair-accessible entrance.", media: { photo: "exterior" } },
+    { id: "hygiene", name: "Hygiene protocol", line: "Exceeding expectations with our cleanliness and hygiene protocol.", media: { photo: "treadmills" } },
+  ] as LockerItem[],
+};
+
 // Remaining section copy is filled in as each object is built.
+
+// ── 04 Classes: the studio scoreboard (SAMPLE timetable, TODO(client): real schedule) ──
+export type ClassSlot = { time: string; name: string; room: string; mins: number; intensity: number; video: string };
+const A: ClassSlot[] = [
+  { time: "06:00", name: "Yoga", room: "Studio", mins: 60, intensity: 1, video: "class-wide" },
+  { time: "07:00", name: "Zumba", room: "Studio", mins: 45, intensity: 3, video: "class-lead" },
+  { time: "18:00", name: "Bhangra", room: "Studio", mins: 45, intensity: 4, video: "class-lead" },
+  { time: "19:00", name: "CrossFit", room: "Floor", mins: 45, intensity: 5, video: "trainer" },
+];
+const B: ClassSlot[] = [
+  { time: "06:30", name: "Aerobics", room: "Studio", mins: 45, intensity: 3, video: "class-wide" },
+  { time: "07:30", name: "CrossFit", room: "Floor", mins: 45, intensity: 5, video: "trainer" },
+  { time: "18:30", name: "Zumba", room: "Studio", mins: 45, intensity: 3, video: "class-lead" },
+  { time: "19:30", name: "Dance", room: "Studio", mins: 45, intensity: 2, video: "class-wide" },
+];
+export const scoreboard = {
+  heading: "Find your class.",
+  sub: "Zumba, Bhangra, Yoga and more. No experience needed: every class has a beginner pace.",
+  days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const,
+  schedule: [A, B, A, B, A, B] as ClassSlot[][],
+};
+
+// ── 05 Café: the shake bar (ivory). TODO(client): real menu and prices ──
+export const shakeBar = {
+  heading: "Train. Refuel. Repeat.",
+  sub: "Finish your session with a shake or a proper meal, right downstairs from the floor.",
+  board: [
+    { title: "Shakes", items: ["Protein shake", "Banana peanut butter", "Cold coffee protein"] },
+    { title: "Meals", items: ["Post-workout bowl", "Paneer or egg plate", "Grilled sandwich"] },
+    { title: "Snacks", items: ["Fruit cup", "Sprouts chaat", "Energy bar"] },
+  ],
+};
+
+// ── 06 The crew ──
+export const crew = {
+  heading: "Built under these lights.",
+  sub: "Certified trainers who start where you are, whether that's your first squat or your next PR.",
+  people: [
+    { name: "Ashmita", role: "Trainer", confirmed: true },
+    { name: "Deepak", role: "Trainer", confirmed: true },
+    { name: "Trainer 03", role: "Name to confirm", confirmed: false },
+    { name: "Trainer 04", role: "Name to confirm", confirmed: false },
+  ],
+};
+
+// ── 07 Beyond the gym: the memory wall. Only frames with real footage are shown.
+// TODO(client): add "The Viva trek", "Festival at Viva" and "Member spotlight: Sunil Singh" back once their photos/clips arrive.
+export type Frame = { id: string; caption: string; media: MediaRef | null };
+export const memoryWall = {
+  line1: "We don't just build muscles.",
+  line2: "We build memories.",
+  sub: "Treks, festivals and class nights. Come for the workout, stay for the people.",
+  frames: [
+    { id: "zumba", caption: "Zumba night", media: { video: "class-lead" } },
+    { id: "class", caption: "Full studio", media: { video: "class-wide" } },
+    { id: "jersey", caption: "The Viva jersey", media: { photo: "jersey" } },
+    { id: "bull", caption: "The bull wall", media: { video: "bull-wall" } },
+    { id: "spin", caption: "Spin room", media: { photo: "spin-room" } },
+    { id: "sunset", caption: "Sunset sessions", media: { photo: "sunset-treadmills" } },
+    { id: "pull", caption: "Pull day", media: { photo: "lat-pulldown" } },
+    { id: "lounge", caption: "After the workout", media: { photo: "lounge" } },
+    { id: "cardio-zone", caption: "Cardio crew", media: { photo: "cardio-zone" } },
+    { id: "entrance", caption: "Come on in", media: { photo: "entrance" } },
+  ] as Frame[],
+};
+
+// ── 08 Big numbers ──
+export const bigNumbers = {
+  themes: [
+    { title: "Modern machines", line: "Reviewers keep mentioning the imported, high-quality equipment." },
+    { title: "Clean and well kept", line: "The hygiene and upkeep come up again and again." },
+    { title: "Supportive trainers", line: "Knowledgeable trainers who guide beginners patiently." },
+  ],
+  note: "Themes summarised from public Google reviews. Real quotes will be added with permission.",
+};
+
+// ── 09 Membership: the access card (ivory). TODO(client): plans and prices (monthly = demo ₹ per month) ──
+export const accessCards = {
+  heading: "Pick your access.",
+  sub: "Simple plans, no pressure. Ask us anything before you join.",
+  terms: [1, 3, 6, 12] as const,
+  plans: [
+    { id: "gym", name: "Gym access", monthly: 3000, perks: ["Full gym floor", "Steam & shower", "Personal locker"] },
+    { id: "plus", name: "Gym + Classes", monthly: 4000, perks: ["Everything in Gym", "Zumba, Bhangra, Yoga", "Trainer guidance"] },
+    { id: "pt", name: "Personal training", monthly: 5000, perks: ["One-to-one coaching", "Plan built for you", "Progress check-ins"] },
+  ],
+};
+
+// ── 10 Book your first day: WhatsApp enquiry ──
+export const enquiry = {
+  heading: "Your first day is on us.",
+  sub: "Tell us when you'd like to come in. We'll confirm on WhatsApp, usually within the day.",
+  interests: ["Gym visit", "Membership", "Personal training"] as const,
+};
+
+export const mapsUrl =
+  contact.googleMaps ??
+  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Viva Premium Gym, Rajput Tower, GMS Road, Dehradun");

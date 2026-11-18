@@ -102,7 +102,7 @@ export default function NeonWall() {
   return (
     <section ref={root} id="walls" data-clock={meta.time} data-clock-label={meta.label} className="neon-wall relative">
       <div ref={stage} className="nw-stage relative flex min-h-dvh flex-col overflow-hidden">
-        <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-4 px-4 pt-24 sm:px-8 md:pt-28">
+        <div className="mx-auto flex w-full items-center justify-between gap-4 px-4 pt-24 sm:px-8 md:pt-28">
           <MicroLabel index={meta.index}>{meta.label}</MicroLabel>
           <p className="micro hidden sm:flex" aria-hidden>
             <span>
@@ -114,7 +114,7 @@ export default function NeonWall() {
           </p>
         </div>
 
-        <div className="mx-auto grid w-full max-w-[1440px] flex-1 grid-rows-[auto_1fr] gap-6 px-4 pt-6 pb-10 sm:px-8 md:grid-cols-[1.15fr_1fr] md:grid-rows-1 md:items-center md:gap-12 md:pt-4">
+        <div className="mx-auto grid w-full flex-1 grid-rows-[auto_1fr] gap-6 px-4 pt-6 pb-10 sm:px-8 md:grid-cols-[1.15fr_1fr] md:grid-rows-1 md:items-center md:gap-12 md:pt-4">
           {/* the wall: signs as giant outline type */}
           <ol className="nw-signs order-2 md:order-1" aria-label="Neon signs on Viva's walls">
             {neonSigns.map((s, i) => (
@@ -164,7 +164,7 @@ export default function NeonWall() {
       </div>
 
       {/* the line it all comes back to */}
-      <div className="nw-close mx-auto max-w-[1100px] px-4 pt-[24vh] pb-[28vh] text-center sm:px-8">
+      <div className="nw-close mx-auto max-w-[1100px] px-4 pt-[8vh] pb-[6vh] sm:pt-[24vh] sm:pb-[28vh] text-center sm:px-8">
         <NeonText as="p" text={neonWallClose.line1} className="headline nw-close-1" stagger={0.035} />
         <NeonText as="p" text={neonWallClose.line2} tone="gold" className="headline nw-close-2" delay={0.9} stagger={0.04} />
         <p className="accent mx-auto mt-10 max-w-xl text-[clamp(20px,2vw,28px)] leading-snug text-ink/80">{neonWallClose.sub}</p>

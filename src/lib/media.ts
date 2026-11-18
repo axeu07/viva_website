@@ -32,6 +32,8 @@ export type ImageAsset = {
 export const videos = manifest.videos as Record<string, VideoAsset>;
 export const images = manifest.images as Record<string, ImageAsset>;
 export const logoSrc = manifest.logoStopgap?.src ?? null;
+/** Hero backdrop with its blur/darken baked in (see backdropBlur in scripts/media.config.mjs). */
+export const backdropBlur = manifest.backdropBlur as { id: string; webp: string; avif: string };
 
 export const srcSet = (img: ImageAsset, ext: "avif" | "webp") =>
   img.widths.map((w) => `${img.base}-${w}.${ext} ${w}w`).join(", ");

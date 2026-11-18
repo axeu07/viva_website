@@ -1,0 +1,217 @@
+/* 02 Your goal: the treadmill console. Imported by GoalFinder.tsx. */
+@layer components {
+  .goal-console { background: radial-gradient(60% 50% at 70% 60%, #17140f 0%, var(--wall) 70%); }
+
+  .tc {
+    position: relative;
+    padding: clamp(18px, 2.4vw, 32px);
+    border-radius: 22px;
+    background: linear-gradient(160deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.01) 40%), #0b0b0b;
+    border: 1px solid rgb(255 244 220 / 0.1);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 30px 80px -30px rgb(0 0 0 / 0.9);
+  }
+  .tc-top,
+  .tc-label {
+    font-family: var(--ff-mono), ui-monospace, monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tc-top { display: flex; justify-content: space-between; gap: 12px; }
+  .tc-state { display: inline-flex; align-items: center; gap: 8px; }
+  .tc-led { width: 6px; height: 6px; border-radius: 50%; background: #3a3631; transition: background-color 0.3s, box-shadow 0.3s; }
+  .tc-led[data-on="true"] { background: #6cff9a; box-shadow: 0 0 8px rgb(59 255 127 / 0.7); }
+
+  /* LED dot-matrix display */
+  .tc-display {
+    position: relative;
+    margin-top: 16px;
+    height: clamp(58px, 6vw, 76px);
+    overflow: hidden;
+    border-radius: 10px;
+    background:
+      radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.05) 1px, transparent 1.4px) 0 0 / 6px 6px,
+      #060504;
+    border: 1px solid rgb(255 244 220 / 0.07);
+    box-shadow: inset 0 0 24px rgb(0 0 0 / 0.9);
+  }
+  .tc-marquee {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: tc-scroll 16s linear infinite;
+  }
+  .tc-marquee span {
+    padding-right: 1.5em;
+    font-family: var(--ff-dot), var(--ff-mono), monospace;
+    font-weight: 800;
+    font-size: clamp(26px, 3vw, 38px);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #f2c879;
+    text-shadow: 0 0 6px rgb(242 200 121 / 0.45);
+  }
+  @keyframes tc-scroll { to { transform: translateX(-50%); } }
+
+  /* touch keys */
+  .tc-keys {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+  @media (min-width: 640px) { .tc-keys { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .tc-key-wide { grid-column: 1 / -1; }
+  .tc-key {
+    position: relative;
+    min-height: 54px;
+    padding: 14px 14px 12px 30px;
+    border-radius: 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.015));
+    border: 1px solid rgb(255 244 220 / 0.1);
+    transition: border-color 0.25s, background-color 0.25s, box-shadow 0.25s, color 0.25s;
+  }
+  .tc-key:hover { border-color: rgb(242 220 168 / 0.45); }
+  .tc-key-led {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    margin-top: -3.5px;
+    border-radius: 50%;
+    background: #33302b;
+    transition: background-color 0.25s, box-shadow 0.25s;
+  }
+  .tc-key[aria-checked="true"] {
+    color: #fff8ea;
+    border-color: rgb(242 220 168 / 0.6);
+    background: linear-gradient(180deg, rgb(200 164 107 / 0.18), rgb(200 164 107 / 0.06));
+    box-shadow: 0 0 22px -8px rgb(242 220 168 / 0.45);
+  }
+  .tc-key[aria-checked="true"] .tc-key-led { background: var(--gold-1); box-shadow: 0 0 8px var(--gold-1); }
+
+  /* readout */
+  .tc-readout {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(255 244 220 / 0.07);
+  }
+  @media (min-width: 640px) { .tc-readout { grid-template-columns: auto 1fr; gap: 28px; } }
+  .tc-meter { display: flex; flex-direction: column; gap: 10px; }
+  .tc-program { display: grid; gap: 12px; }
+  @media (min-width: 768px) { .tc-program { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .tc-program dd { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--ink); }
+  .tc-tag { position: absolute; right: 0; top: 18px; }
+  @media (max-width: 639px) { .tc-tag { position: static; justify-self: start; } }
+
+  .signal-bars { display: flex; align-items: flex-end; gap: 4px; height: 34px; }
+  .signal-bars i {
+    width: 8px;
+    border-radius: 2px;
+    background: #2a2723;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    transition-delay: calc(var(--i) * 70ms);
+  }
+  .signal-bars i.is-on { background: var(--gold-2); box-shadow: 0 0 8px rgb(242 220 168 / 0.35); }
+
+  /* START + the belt */
+  .tc-foot { position: relative; margin-top: 24px; }
+  .tc-start { width: 100%; justify-content: center; }
+  .tc-start:disabled { opacity: 0.45; cursor: not-allowed; filter: grayscale(0.4); }
+  .tc-belt {
+    display: block;
+    height: 6px;
+    margin-top: 14px;
+    border-radius: 3px;
+    background: repeating-linear-gradient(90deg, #1e1c19 0 14px, #2c2925 14px 16px) 0 0 / 360px 100%;
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.8);
+  }
+  .tc.is-running .tc-belt { box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.8), 0 0 14px -2px rgb(242 220 168 / 0.35); }
+
+  /* portrait screen */
+  .tc-screen-wrap { justify-self: center; }
+  .tc-screen {
+    position: relative;
+    width: clamp(240px, 24vw, 330px);
+    aspect-ratio: 5 / 8;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #050403;
+    border: 1px solid rgb(255 244 220 / 0.4);
+    box-shadow: 0 0 4px rgb(255 240 210 / 0.25), 0 0 26px rgb(255 226 170 / 0.08);
+  }
+  .tc-screen .lw-layer { position: absolute; inset: 0; will-change: clip-path; }
+  .tc-screen video,
+  .tc-screen img { width: 100%; height: 100%; object-fit: cover; }
+  .lw-line {
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    top: 0;
+    z-index: 5;
+    height: 2px;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 8px 2px rgb(255 244 220 / 0.8), 0 0 40px 10px rgb(242 220 168 / 0.3);
+  }
+  .tc-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    font-family: var(--ff-mono), ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* mobile: footage sits inside the console in place of the readout */
+  .tc-mobile-screen { position: relative; margin-top: 16px; }
+  .tc-mobile-screen .tc-screen { width: 100%; aspect-ratio: 4 / 3; max-height: 42svh; border-radius: 14px; }
+  .tc-mobile-caption {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 6;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgb(0 0 0 / 0.5);
+    backdrop-filter: blur(6px);
+    font-family: var(--ff-mono), ui-monospace, monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .tc-mobile-book { position: absolute; right: 10px; bottom: 10px; z-index: 6; }
+  @media (max-width: 639px) {
+    .goal-console .tc { padding: 16px; }
+    .tc-display { height: 48px; margin-top: 12px; }
+    .tc-marquee span { font-size: 22px; }
+    .tc-keys { gap: 8px; margin-top: 12px; }
+    .tc-key { min-height: 44px; padding: 10px 10px 10px 28px; font-size: 13.5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tc-marquee { animation: none; }
+  }
+}

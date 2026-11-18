@@ -1,0 +1,26 @@
+/* 08 The scoreboard: big numbers. Imported by Proof.tsx. */
+@layer components {
+  .bn-lines { display: grid; gap: 0.06em; }
+  .bn-line {
+    display: block;
+    font-family: var(--ff-display), Impact, sans-serif;
+    font-weight: 800;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(52px, 8.6vw, 140px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .bn-solid { color: var(--ink); }
+  .bn-solid [data-count] { color: var(--gold-1); text-shadow: 0 0 22px rgb(242 220 168 / 0.18); }
+  .bn-outline { color: transparent; -webkit-text-stroke: 1px rgb(255 244 220 / 0.4); }
+  .bn-card {
+    list-style: none;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: rgb(255 255 255 / 0.025);
+    border: 1px solid rgb(255 244 220 / 0.08);
+  }
+  .bn-card-title { font-weight: 700; font-size: 15px; color: var(--ink); }
+}

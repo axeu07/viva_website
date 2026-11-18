@@ -8,7 +8,7 @@ const OPEN_DAYS = [1, 2, 3, 4, 5, 6]; // Mon..Sat (0 = Sunday)
 
 export type GymStatus = { open: boolean; text: string };
 
-function istNow(now = new Date()) {
+export function istNow(now = new Date()) {
   const ist = new Date(now.getTime() + (now.getTimezoneOffset() + 330) * 60_000);
   return { day: ist.getDay(), mins: ist.getHours() * 60 + ist.getMinutes() };
 }

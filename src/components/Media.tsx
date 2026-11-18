@@ -35,7 +35,7 @@ export function LoopVideo({ id, className = "", style, play = true, eager = fals
     let visible = false;
     const sync = () => {
       if (visible && play) {
-        if (el.preload === "none") el.preload = "auto";
+        if (el.preload !== "auto") el.preload = "auto";
         void el.play().catch(() => {});
       } else el.pause();
     };
@@ -58,15 +58,17 @@ export function LoopVideo({ id, className = "", style, play = true, eager = fals
       muted
       loop
       playsInline
-      preload={eager ? "auto" : "none"}
+      // hero loops buffer fully so they start the instant the lights come on; the rest fetch headers only
+      preload={eager ? "auto" : "metadata"}
       aria-hidden
       tabIndex={-1}
       disablePictureInPicture
     >
       {!saveData && (
         <>
-          <source src={v.webm} type="video/webm" />
+          {/* H.264 first: hardware-decoded on virtually every device (VP9 often falls back to the CPU) and smaller here */}
           <source src={v.mp4} type="video/mp4" />
+          <source src={v.webm} type="video/webm" />
         </>
       )}
     </video>

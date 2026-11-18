@@ -106,7 +106,21 @@ export const photos = [
   { id: "lounge", file: "Screenshot 2026-11-17 121821.png", crop: "470:580:0:0", label: "Reception lounge: sofas, gold tables, plants" },
   { id: "entrance", file: "Screenshot 2026-11-17 121850.png", crop: "476:574:0:0", label: "Glass entrance into the spin room" },
   { id: "exterior", file: "Screenshot 2026-11-17 121627.png", crop: "399:468:0:0", label: "Rajput Tower exterior with VIVA PREMIUM GYM sign" },
+  { id: "sunset-treadmills", file: "Screenshot 2026-11-17 120453.png", crop: "356:560:0:0", label: "Treadmills facing the glass at sunset, city lights (cropped above the VIVA watermark)" },
+  // Client-supplied facility photos (2026-11-18)
+  { id: "steam-room", file: "steam-room.png", crop: "306:460:2:2", label: "Steam room: tiled shower cabin with rain heads and rising steam" },
+  { id: "acupuncture-shower", file: "acupuncture-shower.png", crop: "300:460:0:0", label: "Acupuncture shower: wall body jets spraying a member" },
+  { id: "healthy-cafe", file: "healthy-cafe.png", crop: "256:462:0:0", label: "Healthy café: wraps and salad on the table by the window" },
+  // Hero backdrop (2026-11-18): static CSS background, dimmed by overlays in globals.css (no filters, no motion)
+  { id: "gym-interior", file: "VIVA Premium Gym Interior.png", crop: "2048:768:0:0", label: "Wide gym interior, gold ceiling strips, VIVA PREMIUM GYM reception sign" },
 ];
+
+/**
+ * Hero backdrop with the old CSS `filter: blur(12px) brightness(0.42) saturate(0.9)` baked in,
+ * so the browser doesn't re-blur a full-screen layer while the hero videos play and it scrolls.
+ * sigma is in source pixels: 12 CSS px × (783 px source / ~1500 px displayed width) ≈ 6.3.
+ */
+export const backdropBlur = { photo: "floor-energy", sigma: 6.3, brightness: 0.42, saturate: 0.9 };
 
 /** Widths for responsive photos. Widths above the source are skipped (never upscale). */
 export const photoWidths = [640, 1280, 1920];

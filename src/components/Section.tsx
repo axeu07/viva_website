@@ -69,7 +69,7 @@ export default function Section({ id, time, label, children, className = "", rev
     <section ref={root} id={id} data-clock={time} data-clock-label={label} className={`section relative ${className}`}>
       <div className="section-body relative">
         {showLabel && (
-          <div className="relative z-[1] mx-auto max-w-6xl px-4 pt-14 sm:px-8 lg:pt-20">
+          <div className="relative z-[1] mx-auto px-4 pt-14 sm:px-8 lg:pt-20">
             <SectionLabel time={time} label={label} />
           </div>
         )}

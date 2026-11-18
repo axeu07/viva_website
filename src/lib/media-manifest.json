@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T07:52:42.163Z",
+  "generatedAt": "2026-11-18T05:30:52.066Z",
   "inventory": [
     {
       "file": "Recording 2026-11-17 120344.mp4",
@@ -138,12 +138,44 @@
       "sizeKB": 624
     },
     {
+      "file": "VIVA Premium Gym Interior.png",
+      "type": "image",
+      "width": 2048,
+      "height": 768,
+      "duration": null,
+      "sizeKB": 2230
+    },
+    {
+      "file": "acupuncture-shower.png",
+      "type": "image",
+      "width": 301,
+      "height": 460,
+      "duration": null,
+      "sizeKB": 172
+    },
+    {
       "file": "brand-logo-reference.png",
       "type": "image",
       "width": 167,
       "height": 86,
       "duration": null,
       "sizeKB": 18
+    },
+    {
+      "file": "healthy-cafe.png",
+      "type": "image",
+      "width": 257,
+      "height": 462,
+      "duration": null,
+      "sizeKB": 227
+    },
+    {
+      "file": "steam-room.png",
+      "type": "image",
+      "width": 310,
+      "height": 465,
+      "duration": null,
+      "sizeKB": 251
     },
     {
       "file": "viva_cardio.mp4",
@@ -402,6 +434,69 @@
       "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAACwBQCdASoUABgAPu1cqE2ppKOiN/VYATAdiWYAnTNlwgH6Ae/+AeQOAjpBANNDh6nqwaZmscAA+gz7VtwxlGI9sYeAVdfEaM6ryfruRkE2Z1g26HCOxHVRVrB3c7Ezle9fUDXhA5eTyzPNnGfW5irMkqJH8maqVWPsrfBq0HDr+WLS2pHV23td2IzFZ60REMsS4AAA",
       "source": "Screenshot 2026-11-17 121627.png"
     },
+    "sunset-treadmills": {
+      "id": "sunset-treadmills",
+      "label": "Treadmills facing the glass at sunset, city lights (cropped above the VIVA watermark)",
+      "width": 356,
+      "height": 560,
+      "widths": [
+        356
+      ],
+      "base": "/media/img/sunset-treadmills",
+      "placeholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABwBQCdASoUACAAPu1mrE8ppaQiMBgIATAdiWUAxnw1f+dBKkZ1PFA4ujdPIjrd4V6B1T/EAP70UcaVKYyctYoDJsFqHKQRL21uGU16gZwz158oNUF4maPoAFSWT2xV1XR2Q6/qJ5hihfjBmEdIeafX704oApl9NFRcvHotGewG6nS+/yj01t6ndXsAAA==",
+      "source": "Screenshot 2026-11-17 120453.png"
+    },
+    "steam-room": {
+      "id": "steam-room",
+      "label": "Steam room: tiled shower cabin with rain heads and rising steam",
+      "width": 306,
+      "height": 460,
+      "widths": [
+        306
+      ],
+      "base": "/media/img/steam-room",
+      "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBQCdASoUAB4APu1orU8ppiQiMBgIATAdiWUAxzAzv/fbWKxcGPpfkqWUs9oWNkoLQAD+6f02uuffa5eQFezFir99T6mq5ckbehP7KE4BvLvbsIWFIeDIzZ5nYNKH7YWYFye5SfRsgYMh51nzMzXggAA=",
+      "source": "steam-room.png"
+    },
+    "acupuncture-shower": {
+      "id": "acupuncture-shower",
+      "label": "Acupuncture shower: wall body jets spraying a member",
+      "width": 300,
+      "height": 460,
+      "widths": [
+        300
+      ],
+      "base": "/media/img/acupuncture-shower",
+      "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwBQCdASoUAB4APu1oqVAppaOiqA1RMB2JYwDKITuGL2TnutMGEqJctF0oBkk4KVB7jigAAP70jldgeR4L1mWB04JTBG3CumawY4i8Ej0qmUfvn/fEDNGGIqpPmi+5fkra/UzoB23ExEafuJa/fCIgTPCCk/0ygAA=",
+      "source": "acupuncture-shower.png"
+    },
+    "healthy-cafe": {
+      "id": "healthy-cafe",
+      "label": "Healthy café: wraps and salad on the table by the window",
+      "width": 256,
+      "height": 462,
+      "widths": [
+        256
+      ],
+      "base": "/media/img/healthy-cafe",
+      "placeholder": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACwBQCdASoUACQAPu1iqk8ppSOiKrgN+TAdiWMAuwAiOGI2hwkuAy7+ul5ELirvtFjz2wT5pxAA/vP44He+aT6xHey2rTwNuOY55dTlQ0feo/ZYF4pxTg0h9EXzLBeRMu7+M3MmbhRgzuOk1FVYVbkuhZteB5FvKgmTmap/+/PtTqW1ZRECUtNIUacQQtXN5P1QMMOZ/O6V5EFGmXTQftc5w77owRGPHi0i7oFAAAA=",
+      "source": "healthy-cafe.png"
+    },
+    "gym-interior": {
+      "id": "gym-interior",
+      "label": "Wide gym interior, gold ceiling strips, VIVA PREMIUM GYM reception sign",
+      "width": 2048,
+      "height": 768,
+      "widths": [
+        640,
+        1280,
+        1920,
+        2048
+      ],
+      "base": "/media/img/gym-interior",
+      "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwBACdASoUAAgAPu1kqk4ppaQiMAgBMB2JbACdMoHCAfoB7/92AAVeObNyR9ftRYAA/umuQ0Z0uAS1039kUPNR7QOYwU7XeYwMF2I6qF+Gvl5VlFlxa2IHRb0ZEAtyrWEsKWGiAAA=",
+      "source": "VIVA Premium Gym Interior.png"
+    },
     "lockers": {
       "id": "lockers",
       "label": "Member at the changing-room / locker door (backlit signage)",
@@ -411,7 +506,7 @@
         356
       ],
       "base": "/media/img/lockers",
-      "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBQCdASoUACIAPulgpk2pJaOiNVQMASAdCWUAxgQLN2HVvmUcwe0+7OvdoUZdv1UUZwAA+p6xioh6qxL5sX/Z6QAnGORFOQzMjEn2ZzDx5Qv91ztoguRaCUcKUVWd2NEqHMUkHB/FwR4UXX81B5jTZaGAljLzNbPj9B4dWyt3Zc3AAAA=",
+      "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAACwBQCdASoUACIAPu1cqE2ppKOiNVgIATAdiWUAv2tCwjckUasAdDLV8dkMVBVwP/1Es71rUAAA+p6pczriiqX8z3CO9Aub7NxZUnvoJJGuuQF/V3b3lJ9uZIfaYNu8simYAOB4NTT5i+GVnjXSLjttj+S8tvikFFVJg4MnQn/GasuaL5jU3DTx8BeqXGODRXYAAA==",
       "source": "viva_cardio.mp4 @ 0.25s"
     },
     "jersey": {
@@ -423,7 +518,7 @@
         356
       ],
       "base": "/media/img/jersey",
-      "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwBQCdASoUACIAPuFaqU2opSQiNVgMARAcCWcAzUgWZduehhImqbIO7niFElhfqwT70mX3HGsmAAD+7u5aufQYhBdorKDEi9VAIn7eD2FaiTlEJkT1YL2GNw+nX7LYWFASCwzFuJbSydvboncvdTIjp7bOj/wPubrxRPxGbC0Tl6FkRmFESpRV4xtOA4OSaVv1M0IA",
+      "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBQCdASoUACIAPulgpk2pJaOiNVQMASAdCWUAxgQLN2HVvmUcwe0+7OvdoUZdv1UUZwAA+p6xioh6qxL5sX/Z6QAnGORFOQzMjEn2ZzDx5Qv91ztoguRaCUcKUVWd2NEqHMUkHB/FwR4UXX81B5jTZaGAljLzNbPj9B4dWyt3Zc3AAAA=",
       "source": "viva_cardio.mp4 @ 1s"
     },
     "trainer-stretch": {
@@ -439,12 +534,16 @@
       "source": "viva_cardio.mp4 @ 2s"
     }
   },
+  "backdropBlur": {
+    "id": "floor-energy",
+    "webp": "/media/img/floor-energy-blur.webp",
+    "avif": "/media/img/floor-energy-blur.avif"
+  },
   "logoStopgap": {
     "src": "/media/logo-stopgap.png",
     "note": "Cut from a reel end card at low resolution. Replace with the client's logo file (SVG or large PNG)."
   },
   "unmapped": [
-    "Screenshot 2026-11-17 120453.png",
     "Screenshot 2026-11-17 121900.png",
     "brand-logo-reference.png"
   ]

@@ -88,16 +88,26 @@ export function temperatureAt(mins: number) {
   };
 }
 
-/** Write the clock state to CSS variables on <html> so any layer can react to it. */
+/**
+ * Write the clock state to CSS variables on <html> so any layer can react to it.
+ * Each write to <html> restyles the whole page, and this runs on every scroll frame (often twice),
+ * so a variable is only written when its value actually changed.
+ */
+const lastTemp: Record<string, string> = {};
 export function applyTemperature(mins: number) {
   const s = temperatureAt(mins);
   const r = document.documentElement.style;
-  r.setProperty("--tint", s.tint.join(" "));
-  r.setProperty("--tint-a", s.tintA.toFixed(3));
-  r.setProperty("--dark-a", s.dark.toFixed(3));
-  r.setProperty("--sun-a", s.sunA.toFixed(3));
-  r.setProperty("--sun-angle", s.sunAngle.toFixed(2));
-  r.setProperty("--day", dayProgress(mins).toFixed(4));
+  const set = (k: string, v: string) => {
+    if (lastTemp[k] === v) return;
+    lastTemp[k] = v;
+    r.setProperty(k, v);
+  };
+  set("--tint", s.tint.join(" "));
+  set("--tint-a", s.tintA.toFixed(3));
+  set("--dark-a", s.dark.toFixed(3));
+  set("--sun-a", s.sunA.toFixed(3));
+  set("--sun-angle", s.sunAngle.toFixed(2));
+  set("--day", dayProgress(mins).toFixed(4));
 }
 
 // ── Light-strip flicker (real tube-light start-up: two quick flickers, then steady) ──

@@ -26,7 +26,11 @@ export default function SunBeam({ strength = 1, minimum = 0, dust = true, classN
   );
 }
 
-/** Lightweight 2D-canvas dust motes. Only animates while on screen. */
+/**
+ * Lightweight 2D-canvas dust motes. Only animates while on screen, capped at 30 fps (motes drift
+ * ~0.1 px per frame, so the cap is invisible but halves the full-screen canvas uploads that compete
+ * with video decode). Motion is time-based so speed is the same on 60/120/144 Hz screens.
+ */
 function Dust() {
   const ref = useRef<HTMLCanvasElement>(null);
   const reduced = useReducedMotion();
@@ -63,30 +67,41 @@ function Dust() {
       }));
     };
 
-    const draw = (animate: boolean) => {
+    // `k` = elapsed time in 60 fps frames (the speeds above were tuned per 60 fps frame)
+    const draw = (k: number) => {
       ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "rgb(255, 236, 196)";
       for (const m of motes) {
-        if (animate) {
-          m.p += m.s;
-          m.x += m.vx + Math.sin(m.p) * 0.08;
-          m.y += m.vy + Math.cos(m.p * 0.7) * 0.05;
+        if (k) {
+          m.p += m.s * k;
+          m.x += (m.vx + Math.sin(m.p) * 0.08) * k;
+          m.y += (m.vy + Math.cos(m.p * 0.7) * 0.05) * k;
           if (m.x < -4) m.x = w + 4;
           if (m.y > h + 4) m.y = -4;
         }
-        const a = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(m.p * 2));
+        ctx.globalAlpha = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(m.p * 2));
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 236, 196, ${a.toFixed(3)})`;
         ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
         ctx.fill();
       }
+      ctx.globalAlpha = 1;
     };
 
-    const loop = () => {
-      draw(true);
+    const FRAME = 1000 / 30;
+    let last = 0;
+    const loop = (t: number) => {
       raf = requestAnimationFrame(loop);
+      if (!last) last = t;
+      const dt = t - last;
+      if (dt < FRAME - 2) return;
+      last = t;
+      draw(Math.min(dt, 100) / (1000 / 60)); // clamp so a stalled tab doesn't jump
     };
     const start = () => {
-      if (!raf && visible && !reduced && !document.hidden) raf = requestAnimationFrame(loop);
+      if (!raf && visible && !reduced && !document.hidden) {
+        last = 0;
+        raf = requestAnimationFrame(loop);
+      }
     };
     const stop = () => {
       cancelAnimationFrame(raf);
@@ -94,10 +109,10 @@ function Dust() {
     };
 
     resize();
-    draw(false);
+    draw(0);
     const ro = new ResizeObserver(() => {
       resize();
-      draw(false);
+      draw(0);
     });
     ro.observe(canvas);
     const io = new IntersectionObserver(([e]) => {

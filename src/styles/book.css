@@ -1,0 +1,112 @@
+/* 10 Book your first day: the WhatsApp enquiry. Imported by BookTrial.tsx. */
+@layer components {
+  .bk-terminal {
+    display: grid;
+    gap: 20px;
+    padding: clamp(18px, 2.4vw, 32px);
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.01) 40%), #0b0b0b;
+    border: 1px solid rgb(255 244 220 / 0.1);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05), 0 30px 80px -30px rgb(0 0 0 / 0.9);
+  }
+  .bk-top,
+  .bk-field > label,
+  .bk-field > legend,
+  .dp-head,
+  .dp-grid dt,
+  .dp-foot {
+    font-family: var(--ff-mono), ui-monospace, monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bk-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid rgb(255 244 220 / 0.07); }
+  .bk-field { display: grid; gap: 8px; min-width: 0; border: 0; padding: 0; margin: 0; }
+  .bk-field > legend { margin-bottom: 8px; }
+  .bk-field input:not([type="radio"]) {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #fff8ea;
+    background: #060504;
+    border: 1px solid rgb(255 244 220 / 0.12);
+    color-scheme: dark;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .bk-field input::placeholder { color: #5d5850; }
+  .bk-field input:focus-visible { outline: none; border-color: rgb(242 220 168 / 0.7); box-shadow: 0 0 0 3px rgb(242 220 168 / 0.15); }
+  .bk-field input[aria-invalid="true"] { border-color: #e0876a; }
+  .bk-error { font-size: 13px; color: #f0a184; }
+  .bk-hint { font-size: 12px; color: var(--muted); }
+  .bk-options { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .bk-options { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .bk-option { position: relative; display: block; cursor: pointer; }
+  .bk-option input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .bk-option span {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    border: 1px solid rgb(255 244 220 / 0.12);
+    transition: border-color 0.25s, background-color 0.25s;
+  }
+  .bk-option input:checked + span { color: #fff8ea; border-color: rgb(242 220 168 / 0.6); background: rgb(200 164 107 / 0.12); }
+  .bk-option input:focus-visible + span { outline: 2px solid var(--gold-1); outline-offset: 2px; }
+  .bk-goal { font-size: 14px; color: var(--muted); }
+  .bk-goal strong { color: var(--gold-1); font-weight: 600; }
+  .bk-status { min-height: 1.4em; font-size: 14px; color: var(--gold-1); }
+
+  /* the request preview ticket */
+  .day-pass {
+    position: relative;
+    padding: 22px 24px;
+    border-radius: 14px;
+    background: #f4f1eb;
+    color: #1f1b16;
+    box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.9);
+    -webkit-mask: radial-gradient(10px at 0 62%, transparent 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(10px at 100% 62%, transparent 98%, #000) right / 51% 100% no-repeat;
+    mask: radial-gradient(10px at 0 62%, transparent 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(10px at 100% 62%, transparent 98%, #000) right / 51% 100% no-repeat;
+    transition: transform 0.6s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  .day-pass.is-sent { transform: translateY(-6px); }
+  .day-pass .dp-head, .day-pass dt, .day-pass .dp-foot { color: #927047; }
+  .dp-head { display: flex; justify-content: space-between; gap: 10px; }
+  .dp-name {
+    margin-top: 14px;
+    font-family: var(--ff-display), Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    overflow-wrap: anywhere;
+  }
+  .dp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+  .dp-grid dd { margin-top: 4px; font-size: 14px; font-weight: 600; }
+  .dp-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 22px; padding-top: 16px; border-top: 1px dashed rgb(146 112 71 / 0.5); }
+  .dp-barcode { display: inline-flex; align-items: stretch; gap: 2px; height: 30px; }
+  .dp-barcode i { display: block; background: #1f1b16; }
+
+  .bk-contact { display: grid; gap: 10px; list-style: none; }
+  .bk-link {
+    display: grid;
+    gap: 4px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    color: var(--ink);
+    border: 1px solid rgb(255 244 220 / 0.08);
+    transition: border-color 0.25s, background-color 0.25s;
+  }
+  .bk-link:hover, .bk-link:focus-visible { border-color: rgb(242 220 168 / 0.5); background: rgb(242 220 168 / 0.04); }
+}

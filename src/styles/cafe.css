@@ -1,0 +1,83 @@
+/* 05 Viva Café: the shake bar. Imported by Cafe.tsx. */
+@layer components {
+  .menu-board {
+    padding: clamp(18px, 2.4vw, 30px);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #171512, #0f0e0c);
+    box-shadow: 0 30px 60px -30px rgb(60 40 15 / 0.55), inset 0 0 0 1px rgb(255 244 220 / 0.06);
+    color: #eae4da;
+  }
+  .mb-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgb(255 244 220 / 0.08);
+    font-family: var(--ff-mono), ui-monospace, monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #96918a;
+  }
+  .menu-board .demo-tag { color: var(--gold-1); border-color: rgb(242 220 168 / 0.4); }
+  .mb-cols { display: grid; gap: 22px; margin-top: 18px; }
+  @media (min-width: 640px) { .mb-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .mb-title {
+    font-family: var(--ff-display), Impact, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #f2dca8;
+    text-shadow: 0 0 10px rgb(242 220 168 / 0.25);
+  }
+  .mb-items { margin-top: 10px; display: grid; gap: 10px; list-style: none; }
+  .mb-items li { display: grid; gap: 2px; font-size: 14px; color: #fff4dc; }
+  .mb-price {
+    font-family: var(--ff-mono), ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #96918a;
+  }
+
+  .shaker-btn { display: block; border-radius: 24px; }
+  .shaker { width: clamp(180px, 22vw, 260px); height: auto; overflow: visible; filter: drop-shadow(0 30px 30px rgb(80 55 20 / 0.25)); }
+  .shaker-mark { font-family: var(--ff-display), Impact, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.2em; fill: #fff4dc; opacity: 0.85; }
+  .shaker-wave { animation: shaker-wave 3.2s linear infinite; }
+  @keyframes shaker-wave { to { transform: translateX(110px); } }
+  .shaker-bubbles circle { opacity: 0; }
+  .shaker.is-shaking { animation: shaker-shake 0.9s cubic-bezier(0.36, 0.07, 0.19, 0.97); transform-origin: 50% 80%; }
+  .shaker.is-shaking .shaker-bubbles circle { animation: shaker-bubble 0.9s ease-out both; }
+  @keyframes shaker-shake {
+    10%, 50% { transform: rotate(-9deg) translateY(-6px); }
+    30%, 70% { transform: rotate(9deg) translateY(-10px); }
+    90% { transform: rotate(-3deg); }
+  }
+  @keyframes shaker-bubble {
+    0% { opacity: 0; transform: translateY(0); }
+    30% { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(-120px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shaker-wave, .shaker.is-shaking { animation: none; }
+  }
+}
+
+/* Shaker placement (Cafe.tsx grid). Phone: overlaid on the menu board's empty right side. */
+@layer components {
+  .cafe-shaker { grid-column: 1; grid-row: 2; justify-self: end; align-self: center; margin-right: clamp(8px, 4vw, 28px); }
+  .cafe-shaker .shaker { width: clamp(104px, 30vw, 150px); }
+  @media (max-width: 639px) { .cafe-shaker .micro { color: #96918a; margin-top: 6px; letter-spacing: 0.14em; font-size: 9.5px; } }
+  @media (min-width: 640px) {
+    .cafe-shaker { grid-row: 3; justify-self: center; margin-right: 0; }
+    .cafe-shaker .shaker { width: clamp(180px, 22vw, 260px); }
+  }
+  @media (min-width: 1024px) {
+    .cafe-shaker { grid-column: 2; grid-row: 1 / span 2; }
+  }
+}

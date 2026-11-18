@@ -328,6 +328,9 @@ export const BRACED: Record<LegId, string> = {
   foreNear: legPath("foreNear", [40, 42, 60]).d,
 };
 
+/** Where the braced front hooves dig in (for the skid's dust burst). */
+export const BRACED_HOOVES: Pt[] = [legPath("foreFar", [30, 34, 52]).hoof, legPath("foreNear", [40, 42, 60]).hoof];
+
 /** Standing still (used for the approval sheet). */
 export const STANDING: Record<LegId, string> = {
   hindFar: legPath("hindFar", [10, -14, 6]).d,

@@ -64,38 +64,11 @@ html[data-intro="landing"] .intro {
   padding: 0 16px;
 }
 .it-logo {
+  position: relative;
   will-change: transform, filter, opacity;
   filter: drop-shadow(0 0 28px rgb(200 164 107 / 0.22));
 }
 
-.it-ui {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.it-ui > * {
-  pointer-events: auto;
-}
-.it-skip {
-  position: absolute;
-  top: 18px;
-  right: 16px;
-  min-height: 40px;
-  padding: 0 16px;
-  border-radius: 999px;
-  border: 1px solid rgb(255 244 220 / 0.18);
-  font-family: var(--ff-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  transition: color 0.25s, border-color 0.25s;
-}
-.it-skip:hover,
-.it-skip:focus-visible {
-  color: var(--light);
-  border-color: rgb(242 212 138 / 0.6);
-}
 .it-counter {
   position: absolute;
   right: 16px;
@@ -107,16 +80,24 @@ html[data-intro="landing"] .intro {
   color: var(--gold-1);
   font-variant-numeric: tabular-nums;
 }
-.it-step-wrap {
-  position: absolute;
-  left: 50%;
-  bottom: 16vh;
-  translate: -50% 0;
-}
-.it-step {
-  opacity: 0;
-}
 @media (min-width: 1024px) {
-  .it-skip { top: 28px; right: 28px; }
   .it-counter { right: 28px; bottom: 28px; }
+}
+
+/* the bull layer sits exactly on the logo: same viewBox, same box */
+.it-bull {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+/* hoof dust */
+.it-dustfx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }

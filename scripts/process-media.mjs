@@ -15,10 +15,16 @@ import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, copyFileSync, statSync, readdirSync, writeFileSync, readFileSync, rmSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { sources, clips, frames, photos, photoWidths, loopSize, logoStopgap } from "./media.config.mjs";
+import { sources, clips, frames, photos, photoWidths, loopSize, logoStopgap, backdropBlur } from "./media.config.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SRC = process.env.VIVA_MEDIA_SRC ?? path.resolve(root, "..", "viva_videos");
+// Originals stay in the OneDrive folder; the project lives in C:\dev (OneDrive broke the dev cache).
+const SRC_CANDIDATES = [
+  process.env.VIVA_MEDIA_SRC,
+  path.resolve(root, "..", "viva_videos"),
+  path.join(process.env.USERPROFILE ?? "", "OneDrive", "Desktop", "viva_fitness", "viva_videos"),
+].filter(Boolean);
+const SRC = SRC_CANDIDATES.find((p) => existsSync(p)) ?? SRC_CANDIDATES[0];
 const OUT = path.join(root, "public", "media");
 const RAW = path.join(root, "media-src", "raw"); // outside public/: never deployed
 const VID = path.join(OUT, "video");
@@ -67,14 +73,14 @@ if (!existsSync(SRC)) {
 for (const d of [RAW, VID, IMG, TMP]) mkdirSync(d, { recursive: true });
 
 const prev = existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, "utf8")) : { videos: {}, images: {} };
-const manifest = { generatedAt: new Date().toISOString(), inventory: [], videos: {}, images: {}, logoStopgap: null, unmapped: [] };
+const manifest = { generatedAt: new Date().toISOString(), inventory: [], videos: {}, images: {}, backdropBlur: null, logoStopgap: null, unmapped: [] };
 
 // ── 1. inventory + raw copies ──────────────────────────────────────────────
 console.log(`\n▸ Inventory (${SRC})`);
 const mapped = new Set([...Object.values(sources).map((s) => s.file), ...photos.map((p) => p.file)]);
 for (const file of readdirSync(SRC).sort()) {
   const full = path.join(SRC, file);
-  if (!statSync(full).isFile()) continue;
+  if (file.startsWith(".") || !statSync(full).isFile()) continue;
   const info = probe(full);
   const v = info.streams.find((s) => s.codec_type === "video");
   const entry = {
@@ -162,6 +168,34 @@ for (const p of photos) {
   const filters = [...(p.delogo ?? []).map((b) => { const [x, y, w, h] = b.split(":"); return `delogo=x=${x}:y=${y}:w=${w}:h=${h}`; }), `crop=${p.crop}`];
   const even = (n) => n - (n % 2);
   emitImage(p.id, p.label, input, filters, even(cw), even(ch), { source: p.file });
+}
+
+// Pre-blurred hero backdrop: CSS blur → brightness → saturate, reproduced exactly (all are sRGB-space
+// linear operations, so brightness × the CSS saturate() matrix collapse into one channel mixer).
+{
+  const { photo: pid, sigma, brightness: k, saturate: s } = backdropBlur;
+  const p = photos.find((x) => x.id === pid);
+  if (!p) throw new Error(`backdropBlur.photo "${pid}" is not in photos`);
+  const input = path.join(SRC, p.file);
+  const m = (v) => (v * k).toFixed(4);
+  const mix = [
+    `rr=${m(0.213 + 0.787 * s)}:rg=${m(0.715 - 0.715 * s)}:rb=${m(0.072 - 0.072 * s)}`,
+    `gr=${m(0.213 - 0.213 * s)}:gg=${m(0.715 + 0.285 * s)}:gb=${m(0.072 - 0.072 * s)}`,
+    `br=${m(0.213 - 0.213 * s)}:bg=${m(0.715 - 0.715 * s)}:bb=${m(0.072 + 0.928 * s)}`,
+  ].join(":");
+  const vf = [
+    ...(p.delogo ?? []).map((b) => { const [x, y, w, h] = b.split(":"); return `delogo=x=${x}:y=${y}:w=${w}:h=${h}`; }),
+    `crop=${p.crop}`,
+    "format=gbrp",
+    `gblur=sigma=${sigma}`,
+    `colorchannelmixer=${mix}`,
+  ].join(",");
+  const webp = path.join(IMG, `${pid}-blur.webp`);
+  const avif = path.join(IMG, `${pid}-blur.avif`);
+  if (!fresh(webp, input)) ff(["-i", input, "-frames:v", "1", "-vf", vf, "-c:v", "libwebp", "-quality", "80", webp]);
+  if (!fresh(avif, input)) ff(["-i", input, "-frames:v", "1", "-vf", `${vf},format=yuv420p`, "-c:v", "libaom-av1", "-still-picture", "1", "-crf", "30", "-b:v", "0", avif]);
+  manifest.backdropBlur = { id: pid, webp: `/media/img/${pid}-blur.webp`, avif: `/media/img/${pid}-blur.avif` };
+  console.log(`  ${(pid + "-blur").padEnd(16)} pre-blurred hero backdrop (${kb(webp)} KB webp, ${kb(avif)} KB avif)`);
 }
 
 console.log("\n▸ Stills from video");

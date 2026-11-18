@@ -1,0 +1,38 @@
+/* The two ivory "daylight" sections (café, membership) and the transitions into them. */
+@layer components {
+  .ivory {
+    --ink: #1f1b16;
+    --muted: #6e665a;
+    --ivory: #f4f1eb;
+    --bronze: #927047;
+    background: var(--ivory);
+    color: var(--ink);
+  }
+  .ivory .micro { color: var(--bronze); }
+  .ivory .micro-index { color: var(--bronze); }
+  .ivory .demo-tag { color: var(--bronze); border-color: rgb(146 112 71 / 0.5); }
+  /* daylight sections are always fully lit: no scroll-in shade */
+  .ivory > .section-shade { display: none; }
+
+  .daylight {
+    position: relative;
+    height: clamp(180px, 34vh, 360px);
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .daylight-up { background: linear-gradient(180deg, var(--wall) 0%, #2a2621 35%, #b9b2a6 75%, #f4f1eb 100%); }
+  .daylight-down { background: linear-gradient(180deg, #f4f1eb 0%, #b9b2a6 25%, #2a2621 65%, var(--wall) 100%); }
+  .dl-sun {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(1100px, 120vw);
+    height: 140%;
+    translate: -50% -50%;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 244 220 / 0.55), rgb(242 220 168 / 0.12) 55%, transparent 75%);
+    mix-blend-mode: soft-light;
+  }
+
+  /* lights off: daylight sections drop to the same dark room */
+  html.lights-off :is(.ivory, .daylight) { filter: brightness(0.16) saturate(0.6); transition: filter 0.4s; }
+}

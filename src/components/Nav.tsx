@@ -1,13 +1,14 @@
 "use client";
 /**
  * Sticky nav: logo, section links, sound toggle and a gold "Book free trial" button.
- * Hides on scroll down, shows on scroll up. On mobile a full-screen menu opens with a
+ * Always visible (never hides on scroll). On mobile a full-screen menu opens with a
  * light-on animation and staggered links.
  */
 import { useEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger, getLenis, scrollToTarget, flickerOn } from "@/lib/motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { nav } from "@/lib/content";
+import { tubeJump } from "@/lib/tubeJump";
 import Logo from "./Logo";
 import Button from "./Button";
 import { useSound } from "./Sound";
@@ -21,22 +22,18 @@ export default function Nav() {
   const reduced = useReducedMotion();
   const sound = useSound();
 
-  // hide on scroll down, show on scroll up
+  // always visible; once scrolled it gets a solid, blurred backing so it stays readable
   useEffect(() => {
     const el = bar.current;
     if (!el) return;
     const st = ScrollTrigger.create({
       start: 0,
       end: "max",
-      onUpdate: (self) => {
-        const y = self.scroll();
-        el.classList.toggle("is-scrolled", y > 24);
-        const hide = self.direction === 1 && y > 140;
-        gsap.to(el, { yPercent: hide ? -110 : 0, duration: reduced ? 0 : 0.45, ease: "power3.out", overwrite: true });
-      },
+      onUpdate: (self) => el.classList.toggle("is-scrolled", self.scroll() > 24),
     });
+    el.classList.toggle("is-scrolled", st.scroll() > 24);
     return () => st.kill();
-  }, [reduced]);
+  }, []);
 
   // mobile menu open/close
   useEffect(() => {
@@ -83,7 +80,7 @@ export default function Nav() {
   return (
     <>
       <header ref={bar} className="site-nav">
-        <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-6 px-4 sm:px-8 lg:h-20">
+        <div className="mx-auto flex h-16 items-center gap-6 px-4 sm:px-8 lg:h-20">
           <a
             href="#top"
             className="shrink-0"
@@ -104,8 +101,7 @@ export default function Nav() {
                     className="nav-link"
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToTarget(l.href);
-                      history.replaceState(null, "", l.href);
+                      tubeJump(l.href, l.label, sound.click);
                     }}
                   >
                     {l.label}
@@ -172,7 +168,10 @@ export default function Nav() {
                 className="mm-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  go(l.href);
+                  setOpen(false);
+                  toggleBtn.current?.focus({ preventScroll: true });
+                  // wait for Lenis to restart after the menu closes
+                  setTimeout(() => tubeJump(l.href, l.label, sound.click), 60);
                 }}
               >
                 {l.label}
